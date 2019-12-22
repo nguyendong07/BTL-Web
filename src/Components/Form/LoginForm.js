@@ -34,7 +34,7 @@ class LoginForm extends Component {
     //     code : '1'
     //   })
     // }
-    axios.post('http://localhost:4000/', {
+    axios.post('http://172.19.200.179:4000/', {
       userName: this.state.username,
       passWord: this.state.password
     })
@@ -56,7 +56,7 @@ class LoginForm extends Component {
       return <Redirect to='/Teacher'> </Redirect>
     }
     return (
-      <div className="Body" style={{ backgroundColor: "#e6ffff", width: "100%", height: "667px" }}>
+      <div className="Body" style={{ backgroundColor: "#e6ffff", width: "100%", height: "100vh" }}>
         <Label style={
           {
             backgroundColor: "white",
