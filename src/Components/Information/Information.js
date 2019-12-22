@@ -10,8 +10,8 @@ class Information extends Component {
             <div>
                 <HeaderElement></HeaderElement>
                  <Row>
-                     <Col sm = "3"><Menu></Menu></Col>
-                     <Col sm = "9"><FrameInformation></FrameInformation></Col>
+                     <Col sm = "2"><Menu></Menu></Col>
+                     <Col sm = "10"><FrameInformation></FrameInformation></Col>
                  </Row>
                     
             </div>

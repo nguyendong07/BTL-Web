@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import GroupClass from '../GroupClass/GroupClass';
 import HeaderElement from '../Header/HeaderElement';
 import Menu from '../Menu/Menu';
 import {Row, Col} from 'reactstrap';
