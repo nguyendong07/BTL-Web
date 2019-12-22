@@ -3,6 +3,7 @@ import GroupClass from '../GroupClass/GroupClass';
 import HeaderElement from '../Header/HeaderElement';
 import Menu from '../Menu/Menu';
 import {Row, Col} from 'reactstrap';
+import ListSubject from '../ListSubject/ListSubject';
 
 class Resigter extends Component {
     render() {
@@ -10,15 +11,11 @@ class Resigter extends Component {
             <div>
                <HeaderElement></HeaderElement>
              <Row>
-                <Col sm = "1"> <Menu></Menu></Col> 
-                <Col sm = "11">  <GroupClass></GroupClass></Col>   
+                <Col sm = "2"> <Menu></Menu></Col> 
+                <Col sm = "11"> <ListSubject></ListSubject></Col>   
              </Row>  
-              
-             
             </div>
         );
     }
 }
-
-
 export default Resigter; 

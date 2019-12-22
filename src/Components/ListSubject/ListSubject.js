@@ -5,12 +5,9 @@ class ListSubject extends Component {
         return (
             <div id = "listsubject" style = {{marginLeft : "230px", position : "fixed", top : "115px"}}>
                 <Subject></Subject>
-                <Subject></Subject>
-                <Subject></Subject>
-                <Subject></Subject>
             </div>
         );
-    }
+    }   
 }
 
 export default ListSubject;

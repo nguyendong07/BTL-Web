@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 
+
 class Subject extends Component {
+    constructor(){
+        super();
+        this.state = {
+            courseInfor : [{courseName : 'Toan roi rac', schoolYear : '2019'},{courseName : 'Choi game', schoolYear : '2020'}]
+        }
+    }
+    
     render() {
         return (
-            <div id = "frame" style = {{border : "1px solid black", height : "80px", margin : "20px", width : "1030px" , borderRadius : "13px"}}>
-                <div id = "namesubject" style = {{margin : "10px"}}>
-                      <p>Xác suất thống kê</p>
-                </div>
-                <div id = "time" style = {{float : "right", marginBottom : "10px", marginRight : "10px"}} >
-                      <p>Năm học 2018-2019</p>
-                </div>
+            <div id = "frame" style = {{border : "1px solid black", height : "400px", margin : "20px", width : "1030px" , borderRadius : "13px"}}>
+                {this.state.courseInfor.map(course=>{
+                  return  (<p>{course.courseName}</p>)
+                })}
+
             </div>
         );
     }

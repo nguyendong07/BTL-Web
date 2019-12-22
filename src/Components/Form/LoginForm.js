@@ -31,7 +31,7 @@ class LoginForm extends Component {
         }
         return (
 <div className = "Body" style = {{backgroundColor: "#e6ffff", width :"100%", height : "667px" }}>
-    <Label style = {{backgroundColor : "#f1f1f1",border: "1px solid gray", width : "40%", marginTop : "10%",padding : "20px", position:"fixed", marginLeft : "30%", borderRadius : "16px"}}>
+    <Label style = {{backgroundColor : "white",border: "1px solid gray", width : "40%", marginTop : "10%",padding : "20px", position:"fixed", marginLeft : "30%", borderRadius : "16px"}}>
       <FormGroup>
         <Label for="exampleEmail" style = {{fontFamily : "Arial, Helvetica, sans-serif", fontSize : "20px", float :"left", marginTop : "5px    "}}>Tài khoản</Label>
         <Input type="email" name="username" id="exampleEmail" placeholder="email" onChange = {this.HandleChange} />
