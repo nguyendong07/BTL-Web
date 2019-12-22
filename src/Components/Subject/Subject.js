@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-
+import '../Subject/Subject.css';
+import {Link} from 'react-router-dom';
 
 class Subject extends Component {
     constructor(){
         super();
         this.state = {
-            courseInfor : [{courseName : 'Toan roi rac', schoolYear : '2019'},{courseName : 'Choi game', schoolYear : '2020'}]
+            courseInfor : [{courseName : 'Toán rời rạc', schoolYear : '2019 - 2020'},{courseName : 'Xác suất thống kê', schoolYear : '2019 - 2020'}]
         }
     }
-    
     render() {
         return (
-            <div id = "frame" style = {{border : "1px solid black", height : "400px", margin : "20px", width : "1030px" , borderRadius : "13px"}}>
+            <div id = "frame">
                 {this.state.courseInfor.map(course=>{
-                  return  (<p>{course.courseName}</p>)
+                  return  (
+                   <div id = "frameSubject"> 
+                   <p><Link to = "/GroupClass">{course.courseName}</Link></p>
+                   <pre style = {{float: "right", marginRight : "20px"}}>Năm học : {course.schoolYear}</pre>
+                   </div>   
+                  )
                 })}
 
             </div>

@@ -5,6 +5,10 @@ import Admin from './Components/Admin/Admin';
 import Resigter from './Components/Resigter/Resigter';
 import Information from './Components/Information/Information';
 import Test from './Components/Test';
+import resultRegister from './Components/resultRegister/resultRegister';
+import GroupClass from './Components/GroupClass/GroupClass';
+import Notification from './Components/Notification/Notification';
+import Teacher from './Components/Teacher/Teacher';
 function App() {
   return<Brt>
   <Switch>
@@ -13,10 +17,11 @@ function App() {
     <Route exact path="/Resigter" component = {Resigter}/>
     <Route exact path="/Information" component = {Information}/>
     <Route exact path="/Test" component = {Test}/>
+    <Route exact path="/resultRegister" component = {resultRegister}></Route>
+    <Route exact path="/GroupClass" component = {GroupClass}></Route>
+    <Route exact path="/Notification" component = {Notification}></Route>
+    <Route exact path="/Teacher" component = {Teacher}></Route>
   </Switch>
-     
   </Brt>
-}
-
-
+} 
 export default App;

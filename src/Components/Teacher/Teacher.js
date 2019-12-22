@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import HeaderElement from '../Header/HeaderElement';
-import Menu from '../Menu/Menu';
+import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import ListSubject from '../ListSubject/ListSubject';
-class Admin extends Component {
+class Teacher extends Component {
     constructor(){
         super();
         this.state={
@@ -13,9 +13,9 @@ class Admin extends Component {
     render() {
         if(this.state.isLoged==="true"){
             return (
-                <div style = {{width : "100%"}}>       
+                <div>       
                     <HeaderElement></HeaderElement>
-                     <Menu></Menu> 
+                     <MenuTeacher></MenuTeacher> 
                      <ListSubject></ListSubject>           
                 </div>
             );
@@ -25,4 +25,4 @@ class Admin extends Component {
         }
     }
 }
-export default Admin;
+export default Teacher;
