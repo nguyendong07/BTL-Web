@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import '../Header/HeaderElement.css';
+import {Button} from 'reactstrap';
+
 export default class extends Component {
+    constructor(props){
+        super(props);
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+    handleLogout(){
+        localStorage.clear();
+        window.location.href = "/"
+    }
     render() {
         return (
+            <div id = "header-container">
+                <h1 id = "header-text" >Hệ thống đăng kí thi online </h1>
+                <Button color = "secondary" onClick = {this.handleLogout}>Đăng xuất</Button>
             <div>
-                <h1>Hệ thống đăng kí thi online đại học Công Nghệ</h1>
+                <marquee>Thông báo : Lịch thi sẽ được cập nhật hằng ngày</marquee>
+            </div>  
             </div>
+           
         );
     }
 }

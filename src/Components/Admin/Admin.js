@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import {Button} from 'reactstrap';
+import {Redirect} from 'react-router-dom';
 import HeaderElement from '../Header/HeaderElement';
+import Menu from '../Menu/Menu';
+import ListSubject from '../ListSubject/ListSubject';
 class Admin extends Component {
     constructor(){
         super();
@@ -7,20 +11,19 @@ class Admin extends Component {
             isLoged:localStorage.getItem('isLoged')
         }
     }
-     
     render() {
-        console.log(this.state.isLoged);
-        if(this.state.isLoged==='true'){
+        if(this.state.isLoged==="true"){
             return (
-                <div>
-                    <HeaderElement />
+                <div>       
+                    <HeaderElement></HeaderElement>
+                     <Menu></Menu> 
+                     <ListSubject></ListSubject>           
                 </div>
             );
         }
-        return(<div>
-            
-        </div>)
+        else if (this.state.isLoged==="false") {
+           return <Redirect to = "/"></Redirect>
+        }
     }
 }
-
 export default Admin;

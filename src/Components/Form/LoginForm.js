@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Label, FormGroup, Input, Button} from 'reactstrap';
 import {Redirect} from 'react-router-dom';
+import './LoginForm.css';
 class LoginForm extends Component {   
    constructor() {
        super();
@@ -29,8 +30,8 @@ class LoginForm extends Component {
           return  <Redirect to = '/Admin'></Redirect>
         }
         return (
-<div id = "form">
-    <Label style = {{border: "1px solid gray", width : "40%", marginTop : "10%" }}>
+<div className = "Body" style = {{backgroundColor: "#e6ffff", width :"100%", height : "667px" }}>
+    <Label style = {{backgroundColor : "white",border: "1px solid gray", width : "40%", marginTop : "10%",padding : "20px", position:"fixed", marginLeft : "30%", borderRadius : "16px"}}>
       <FormGroup>
         <Label for="exampleEmail" style = {{fontFamily : "Arial, Helvetica, sans-serif", fontSize : "20px", float :"left", marginTop : "5px    "}}>Tài khoản</Label>
         <Input type="email" name="username" id="exampleEmail" placeholder="email" onChange = {this.HandleChange} />
@@ -40,7 +41,7 @@ class LoginForm extends Component {
             style = {{fontFamily : "Arial, Helvetica, sans-serif", fontSize : "20px",float :"left"}}for="examplePassword">Mật khẩu</Label>
         <Input  type="password" name="password" id="examplePassword" placeholder="password" onChange = {this.HandleChange} />
       </FormGroup>
-      <Button style = {{marginBottom : "20px",width : "200px",height : "40px"}} color="success" size="sm" onClick = {this.FormLogin}>Đăng nhập</Button>{' '}
+      <Button style = {{marginBottom : "20px",width : "200px",height : "40px", marginLeft: "150px"}} color="success" size="sm" onClick = {this.FormLogin}>Đăng nhập</Button>{' '}
       </Label>
 </div>
         );
