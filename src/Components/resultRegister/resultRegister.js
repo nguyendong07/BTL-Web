@@ -25,7 +25,6 @@ class resultRegister extends Component {
                 <Col sm = "10">
                     <div id = "listSubjectRegisted">
                         <h2>Danh sách phòng thi đã đăng ký</h2>
-                        
                     </div>
 
                 </Col>   

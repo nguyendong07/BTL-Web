@@ -11,7 +11,7 @@ import Teacher from './Components/Teacher/Teacher'
 function App() {
   return<Brt>
   <Switch>
-    <Route exact path= "/" component = {LoginForm}></Route>
+    <Route exact path= "/" component = {Information}></Route>
     <Route exact path="/admin" component ={Admin} />
     <Route exact path="/Resigter" component = {Resigter}/>
     <Route exact path="/Information" component = {Information}/>

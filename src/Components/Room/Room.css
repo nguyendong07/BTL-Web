@@ -1,4 +1,17 @@
-#cointainers :hover {
-    background-color: cadetblue;
+#frame-room :hover {
+    background-color: #CCFFCC;
     border-radius : 12px;
+}
+
+#frameSubject :hover {
+    
+    border-radius:  12px;
+}
+
+#frame-room {
+    height: 20vh;
+    width: 70vw;
+    position: fixed;
+    top : 20vh;
+    left: 20vw ;
 }
