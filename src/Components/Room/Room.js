@@ -30,7 +30,7 @@ class Room extends Component {
                     {paddingBottom : "12px", 
                     paddingTop : "10px", 
                     paddingLeft :"15px"}} >
-                    <img height = "120px" width = "140px" src = {computer}></img> 
+                    <img height = "120px" width = "140px" alt= "Computer" src = {computer}></img> 
                 </div>
                 <div id = "numbercomputer" style = {{textAlign : "center"}}>
                     <pre style = {{fontFamily : "sans-serif"}}>
