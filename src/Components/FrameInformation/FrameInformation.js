@@ -14,12 +14,14 @@ class FrameInformation extends Component {
     render() {
         return (
             <div id = "container" style = {
-                {height : "450px", 
-                width : "1000px",  
+                {height : "70vh", 
+                width : "68vw",  
                 border : "1px solid black",  
-                marginTop : "35px", marginLeft : "40px",
+                top : "21vh",
+                left : "23vw",
                 borderRadius : "12px",
-                backgroundColor: "#e6ffff"
+                backgroundColor: "#e6ffff",
+                position :"fixed"
             }}>
                 <div id = "photo" style = {
                     {border: "1px solid black",
