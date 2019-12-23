@@ -19,34 +19,41 @@ class LoginForm extends Component {
     // e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   }
-  handleLogin() {
-    // if  (this.state.username === 'student' && this.state.password ==='123') {
-    //   localStorage.setItem('isLoged','true');
-    //   this.setState({
-    //       isLoged : true,
-    //       code : '0'
+  async handleLogin() {
+    if  (this.state.username === 'student' && this.state.password ==='123') {
+      localStorage.setItem('isLoged','true');
+      this.setState({
+          isLoged : true,
+          code : '0'
+      })
+    }
+    else if (this.state.username === "admin" && this.state.password === '123') {
+      localStorage.setItem('isLoged', 'true');
+      this.setState({
+        isLoged :true,
+        code : '1'
+      })
+    }
+    // const response = await axios.post('http://192.168.1.103:4000/', {
+    //   userName: this.state.username,
+    //   passWord: this.state.password
+    // })
+    //   .then((res) => {
+    //     // if (res.statusText.match('OK')) {
+    //     //   localStorage.setItem('isLoged', 'true');
+    //     //   this.setState({
+    //     //     isLoged: true,
+    //     //     code: '0'
+    //     //   })
+    //     // }
     //   })
-    // }
-    // else if (this.state.username === "admin" && this.state.password === '123') {
+    // if (response.statusText === "OK") {
     //   localStorage.setItem('isLoged', 'true');
     //   this.setState({
-    //     isLoged :true,
-    //     code : '1'
+    //     isLoged: true,
+    //     code: '0'
     //   })
     // }
-    axios.post('http://172.19.200.179:4000/', {
-      userName: this.state.username,
-      passWord: this.state.password
-    })
-      .then((res) => {
-        if (res.statusText.match('OK')) {
-          localStorage.setItem('isLoged', 'true');
-          this.setState({
-            isLoged: true,
-            code: '0'
-          })
-        }
-      })
   }
   render() {
     if (this.state.isLoged === true && this.state.code === '0') {
