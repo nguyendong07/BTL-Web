@@ -8,7 +8,7 @@ class Subject extends Component {
         this.state = {
             courseInfor : [{courseName : 'Toán rời rạc', schoolYear : '2019 - 2020'},{courseName : 'Xác suất thống kê', schoolYear : '2019 - 2020'}]
         }
-    }
+    }   
     render() {
         return (
             <div id = "frame">
