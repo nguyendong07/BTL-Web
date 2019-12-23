@@ -7,12 +7,12 @@ import ListSubject from '../ListSubject/ListSubject';
 class Resigter extends Component {
     render() {
         return (
-            <div>
+            <div >
                <HeaderElement></HeaderElement>
-             <Row>
-                <Col sm = "2"> <Menu></Menu></Col> 
-                <Col sm = "11"> <ListSubject></ListSubject></Col>   
-             </Row>  
+            <div>
+                <Menu></Menu>
+                <ListSubject></ListSubject>
+            </div>
             </div>
         );
     }

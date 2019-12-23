@@ -9,28 +9,11 @@ class GroupClass extends Component {
         return (
            <div>
             <HeaderElement></HeaderElement>
-            <Row>
-                <Col sm = "1"><Menu></Menu></Col>
-                <Col sm = "11">
-                <div style = {{marginTop : "50px", marginLeft : "180px"}}>
-                <Container>
-                    <Row>
-                        <Col><Room></Room></Col>
-                        <Col><Room></Room></Col>
-                        <Col><Room></Room></Col>
-                        <Col><Room></Room></Col>
-                    </Row>
-                    <div style = {{height : "30px"}}></div> 
-                    <Row>
-                        <Col><Room></Room></Col>
-                        <Col><Room></Room></Col>
-                        <Col><Room></Room></Col>
-                        <Col><Room></Room></Col>
-                    </Row>
-                </Container>
-            </div></Col>
-            </Row>
-            
+            <div>
+             <Menu></Menu>   
+             <Room></Room>
+            </div>
+           
             </div>    
         );
     }
