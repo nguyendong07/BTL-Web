@@ -13,7 +13,7 @@ class Admin extends Component {
     render() {
         if(this.state.isLoged==="true"){
             return (
-                <div style = {{width : "100vw", height : "100vh"}}>       
+                <div style = {{width : "100vw", height: "100vh"}}>       
                     <HeaderElement></HeaderElement>
                      <Menu></Menu> 
                      <ListSubject></ListSubject>           
