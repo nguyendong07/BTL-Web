@@ -8,7 +8,7 @@ class MenuTeacher extends Component {
             <div id="body">
                 <div id="areahead">
                     <p>
-                        <Link to="#"
+                        <Link to="/Teacher"
                             style={{
                                 textDecoration: 'none',
                                 color: "black",
@@ -20,7 +20,7 @@ class MenuTeacher extends Component {
                     </p> </div>
                 <div id="area" >
                     <p>
-                        <Link to="#"
+                        <Link to="/SubjectScreen"
                             style={{
                                 textDecoration: 'none',
                                 color: "black",

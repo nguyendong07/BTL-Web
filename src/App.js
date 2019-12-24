@@ -8,10 +8,13 @@ import resultRegister from './Components/resultRegister/resultRegister'
 import GroupClass from './Components/GroupClass/GroupClass'
 import Notification from './Components/Notification/Notification'
 import Teacher from './Components/Teacher/Teacher'
+import StudentScreen from './Components/Teacher/StudentScreen'
+import SubjectScreen from './Components/Teacher/SubjectScreen'
+import Add from './Components/Teacher/Add'
 function App() {
   return<Brt>
   <Switch>
-    <Route exact path= "/" component = {Information}></Route>
+    <Route exact path= "/" component = {LoginForm}></Route>
     <Route exact path="/admin" component ={Admin} />
     <Route exact path="/Resigter" component = {Resigter}/>
     <Route exact path="/Information" component = {Information}/>
@@ -19,6 +22,9 @@ function App() {
     <Route exact path="/GroupClass" component = {GroupClass}></Route>
     <Route exact path="/Notification" component = {Notification}></Route>
     <Route exact path="/Teacher" component = {Teacher}></Route>
+    <Route exact path="/Teacher/StudentScreen" component = {StudentScreen}></Route>
+    <Route exact path="/Teacher/SubjectScreen" component = {SubjectScreen}></Route>
+    <Route exact path="/Teacher/StudentScreen/Add" component = {Add}></Route>
   </Switch>
   </Brt>
 } 
