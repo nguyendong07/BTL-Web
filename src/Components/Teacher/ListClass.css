@@ -1,0 +1,15 @@
+#frame :hover {
+    background-color: #CCFFCC;
+    border-radius : 12px;
+}
+#frameSubject :hover { 
+    border-radius:  12px;
+}
+#frameSubject {
+    height: 120px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+}
+p{
+    margin-bottom: -10px;
+}

@@ -1,0 +1,36 @@
+#btn1{
+    width: 150px;
+    margin-top: 120px;
+    left: 260px;
+    position: fixed;
+    background-color: brown;
+}
+#btn2{
+    width: 150px;
+    margin-top: 120px;
+    left: 560px;
+    position: fixed;
+    background-color: brown;
+}
+#btn3{
+    width: 150px;
+    margin-top: 120px;
+    left: 860px;
+    position: fixed;
+    background-color: brown;
+}
+
+#btnModal{
+    margin-top: 120px;
+    left: 660px;
+    position: fixed;
+    background-color: brown;
+}
+#frameStudent {
+    height : 120px;
+    width : 1000px;
+    border : 1px solid black;
+    margin : 30px;
+    border-radius : 13px;
+    
+}

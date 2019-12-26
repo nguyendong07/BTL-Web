@@ -70,6 +70,7 @@ class Room extends Component {
                   )
                 })}
             </div>
+
         );
     }
 }
