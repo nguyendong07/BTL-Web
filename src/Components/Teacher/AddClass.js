@@ -1,10 +1,10 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './ListStudent.css';
-import { Button } from 'reactstrap';
-import Modal from 'react-modal';
+import './ListClass.css'
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
+import { Button } from 'reactstrap';
+import Modal from 'react-modal';
 const customStyles = {
     content: {
         top: '50%',
@@ -15,37 +15,46 @@ const customStyles = {
         transform: 'translate(-50%, -50%)'
     }
 };
-class ListStudent extends Component {
+class AddClass extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             courseInfor: [
-                { name: 'Lê Văn Đức', msv: '17020695', class: 'K62 CB', schoolYear: '2019 - 2020' },
-                { name: 'Lê Văn Test', msv: '17020695', class: 'K62 CB', schoolYear: '2019 - 2020' },
+                { className: 'Tin học cơ sở 4', schoolYear: '2019 - 2020' },
+                { className: 'Phát triển ứng dụng Web', schoolYear: '2019 - 2020' }
             ],
             modalIsOpenAdd: false,
             modalIsOpenDel: false,
+
         }
         this.openModalAdd = this.openModalAdd.bind(this);
         this.closeModalAdd = this.closeModalAdd.bind(this);
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
     }
+
     renderButton() {
         return (
             <div>
-                <Button id="btn1"
-                    style={{ textDecoration: 'none', color: 'white' }}
+                <Button
+                    style={{
+                        textDecoration: 'none', color: 'white',
+                        width: 180,
+                        marginTop: 120,
+                        left: 260,
+                        position: 'fixed',
+                        backgroundColor: 'brown',
+                    }}
                     onClick={this.openModalAdd}
                 >
-                    Thêm sinh viên
+                    Thêm lớp
                 </Button>
                 <Button id="btn2"
                     style={{ textDecoration: 'none', color: 'white' }}
                     onClick={this.openModalDel}
                 >
-                    Xóa sinh viên
+                    Xóa lớp
                 </Button>
             </div>
         )
@@ -54,29 +63,6 @@ class ListStudent extends Component {
     Add = () => {
         { this.closeModalAdd() }
     }
-
-    Del = () => {
-        { this.closeModalDel() }
-    }
-
-    renderClass() {
-        return (
-            <div id="frame">
-                {this.state.courseInfor.map(course => {
-                    return (
-                        // <div style={{ textDecoration: 'none' }}>
-                        <div id="frameStudent">
-                            <p>Họ và tên: {course.name}<br />
-                                Mã sinh viên: {course.msv}<br />
-                            </p>
-                        </div>
-                        // </div>
-                    )
-                })}
-            </div>
-        )
-    }
-
     openModalAdd() {
         this.setState({ modalIsOpenAdd: true });
     }
@@ -93,14 +79,13 @@ class ListStudent extends Component {
                     style={customStyles}
                 >
                     <div>
-                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Thêm sinh viên </h2>
+                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Thêm lớp </h2>
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
                         <label name="class"
-                        // style={{ marginRight: 10 }}
                         >
-                            Họ và tên: </label>
+                            Tên lớp: </label>
                         <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
                     </div>
                     <div style={{ clear: 'both' }}></div>
@@ -108,7 +93,7 @@ class ListStudent extends Component {
                         <label name="class"
                             style={{ marginBottom: 100 }}
                         >
-                            Mã sinh viên: </label>
+                            Học kỳ: </label>
                         <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
                     </div>
                     <div style={{ clear: 'both' }}></div>
@@ -122,6 +107,10 @@ class ListStudent extends Component {
         );
     }
 
+    Del = () => {
+        { this.closeModalDel() }
+    }
+
     openModalDel() {
         this.setState({ modalIsOpenDel: true });
     }
@@ -129,6 +118,8 @@ class ListStudent extends Component {
     closeModalDel() {
         this.setState({ modalIsOpenDel: false });
     }
+
+
     renderModalDel() {
         return (
             <div>
@@ -138,23 +129,52 @@ class ListStudent extends Component {
                     style={customStyles}
                 >
                     <div>
-                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Xóa sinh viên</h2>
+                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Xóa lớp </h2>
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
-                        <label name="msv" style={{ marginBottom: 100 }}>Mã sinh viên: </label>
-                        <input type="text" name="msv" id="msv" style={{ float: 'right', marginLeft: 10 }} />
+                        <label name="class">
+                            Tên lớp: </label>
+                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
                     </div>
                     <div style={{ clear: 'both' }}></div>
-                    <button style={{ marginTop: 150 }}
+                    <div >
+                        <label name="class"
+                            style={{ marginBottom: 100 }}
+                        >
+                            Học kỳ: </label>
+                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
+                    </div>
+                    <div style={{ clear: 'both' }}></div>
+                    <button style={{ marginTop: 200 }}
                         onClick={() => { this.Del() }}
                     >
-                        Xóa sinh viên
+                        Xóa
                     </button>
-
                 </Modal>
             </div>
         );
+    }
+
+    renderClass() {
+        return (
+            <div id="frame">
+                {this.state.courseInfor.map(course => {
+                    return (
+                        <Link to="/Teacher/AddClass/AddSubject" style={{ textDecoration: 'none' }}>
+                            <div id="frameSubject">
+                                <p>
+                                    {course.className}
+                                </p>
+                                <p style={{ float: "right", marginRight: 10, fontSize: 16, }}>
+                                    Học kỳ: {course.schoolYear}
+                                </p>
+                            </div>
+                        </Link>
+                    )
+                })}
+            </div>
+        )
     }
 
     render() {
@@ -165,10 +185,9 @@ class ListStudent extends Component {
                 <div
                     style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
                 >
-
                     {this.renderButton()}
-                    {this.renderClass()}
                     {this.renderModalAdd()}
+                    {this.renderClass()}
                     {this.renderModalDel()}
                 </div>
             </>
@@ -176,4 +195,4 @@ class ListStudent extends Component {
     }
 }
 
-export default ListStudent    
+export default AddClass 

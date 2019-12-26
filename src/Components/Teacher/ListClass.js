@@ -7,8 +7,8 @@ class ListClass extends Component {
         super();
         this.state = {
             courseInfor: [
-                { className: 'K62 CB', schoolYear: '2019 - 2020' },
-                { className: 'K62 CC', schoolYear: '2019 - 2020' }
+                { className: 'Tin học cơ sở 4', schoolYear: '2019 - 2020' },
+                { className: 'Phát triển ứng dụng Web', schoolYear: '2019 - 2020' }
             ]
         }
     }
@@ -18,14 +18,14 @@ class ListClass extends Component {
             <div id="frame">
                 {this.state.courseInfor.map(course => {
                     return (
-                         <Link to="/Teacher/StudentScreen" style={{ textDecoration: 'none' }}>
+                         <Link to="/Teacher/ListSubject" style={{ textDecoration: 'none' }}>
                             <div id="frameSubject">
                                 <p>
-                                    Lớp học: {course.className}
+                                        {course.className}
                                 </p>
-                                <pre style={{ float: "right", marginRight: "20px" }}>
+                                <p style={{ float: "right",marginRight: 10, fontSize:16,}}>
                                     Kỳ học: {course.schoolYear}
-                                </pre>
+                                </p>
                             </div>
                          </Link>
                     )

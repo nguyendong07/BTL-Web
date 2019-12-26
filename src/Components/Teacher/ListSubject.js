@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
-class ListClass extends Component {
+import './ListClass.css'
+import HeaderElement from '../Header/HeaderElement';
+import MenuTeacher from '../MenuTeacher/MenuTeacher';
+class ListSubject extends Component {
 
     constructor() {
         super();
         this.state = {
             courseInfor: [
-                { className: 'K62 CB', schoolYear: '2019 - 2020' },
-                { className: 'K62 CC', schoolYear: '2019 - 2020' }
+                { className: 'Tin học cơ sở 4', Time: "7h30", Date: "2/1/2020", Slot: "0/50", Room:'3-G3' },
+                { className: 'Tin học cơ sở 4', Time: "7h30", Date: "1/1/2020", Slot: "5/50",Room:'301-GD2' },
             ]
         }
     }
-
     renderClass() {
         return (
             <div id="frame">
                 {this.state.courseInfor.map(course => {
                     return (
-                         <Link to="/Teacher/StudentScreen">
+                        <Link to="/Teacher/ListSubject/ListStudent" style={{ textDecoration: 'none' }}>
                             <div id="frameSubject">
-                                <p>
-                                    {course.className}
-                                </p>
-                                <pre style={{ float: "right", marginRight: "20px" }}>
-                                    Kỳ học: {course.schoolYear}
-                                </pre>
+                                <div style={{ fontSize: 24, }}>
+                                    <p>{course.className}</p>
+                                </div>
+                                <div style={{ fontSize: 16, marginLeft: 15 }}>
+                                    Số lượng máy: {course.Slot}<br/>
+                                    Phòng: {course.Room}
+                                </div>
+                                <div style={{fontSize: 16, float:'right', marginRight:20, marginTop: -50, fontWeight:600}}>
+                                    Thời gian: {course.Time}<br/>
+                                    Ngày: {course.Date}
+                                </div>
                             </div>
-                         </Link>
+                        </Link>
                     )
                 })}
             </div>
@@ -36,13 +42,17 @@ class ListClass extends Component {
 
     render() {
         return (
-            <div id="listsubject"
-                style={{ marginLeft: "230px", position: "fixed", top: "115px" }}
+            <>
+                <HeaderElement></HeaderElement>
+                <MenuTeacher></MenuTeacher>
+                <div id="listsubject"
+                    style={{ marginLeft: "230px", position: "fixed", top: "115px" }}
                 >
-                {this.renderClass()}
-            </div>
+                    {this.renderClass()}
+                </div>
+            </>
         );
     }
 }
 
-export default ListClass    
+export default ListSubject    

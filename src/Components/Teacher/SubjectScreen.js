@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
-import ListClass from './ListClass';
 
-class StudentScreen extends Component {
+class SubjectSreen extends Component {
     render() {
             return (
                 <div>
@@ -14,4 +13,4 @@ class StudentScreen extends Component {
             );
         }
 }
-export default StudentScreen;
+export default SubjectSreen;

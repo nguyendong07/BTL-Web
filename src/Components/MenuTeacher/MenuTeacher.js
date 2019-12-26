@@ -20,7 +20,7 @@ class MenuTeacher extends Component {
                     </p> </div>
                 <div id="area" >
                     <p>
-                        <Link to="/SubjectScreen"
+                        <Link to="/Teacher/AddClass"
                             style={{
                                 textDecoration: 'none',
                                 color: "black",
