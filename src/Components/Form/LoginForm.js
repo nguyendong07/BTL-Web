@@ -4,15 +4,13 @@ import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
 import axios from 'axios';
 class LoginForm extends Component {
-
   constructor() {
     super();
     this.state = {
       username: '',
       password: '',
       isLoged: false,
-      code: '0',
-      token: ''
+      code: '0'
     }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -21,29 +19,41 @@ class LoginForm extends Component {
     // e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   }
-  handleLogin() {
-    const host = 'http://192.168.2.93:4000/'
-    axios.post(host + 'Login', {
-      userName: this.state.username,
-      passWord: this.state.password
-    })
-      .then((res) => {
-        this.setState({token: res})
+  async handleLogin() {
+    if  (this.state.username === 'student' && this.state.password ==='123') {
+      localStorage.setItem('isLoged','true');
+      this.setState({
+          isLoged : true,
+          code : '0'
       })
-
-    axios.post(host, {
-      userName: this.state.username,
-      passWord: this.state.password
-    })
-      .then((res) => {
-        if (res.statusText.match('OK')) {
-          localStorage.setItem('isLoged', 'true');
-          this.setState({
-            isLoged: true,
-            code: '0'
-          })
-        }
+    }
+    else if (this.state.username === "admin" && this.state.password === '123') {
+      localStorage.setItem('isLoged', 'true');
+      this.setState({
+        isLoged :true,
+        code : '1'
       })
+    }
+    // const response = await axios.post('http://192.168.1.103:4000/', {
+    //   userName: this.state.username,
+    //   passWord: this.state.password
+    // })
+    //   .then((res) => {
+    //     // if (res.statusText.match('OK')) {
+    //     //   localStorage.setItem('isLoged', 'true');
+    //     //   this.setState({
+    //     //     isLoged: true,
+    //     //     code: '0'
+    //     //   })
+    //     // }
+    //   })
+    // if (response.statusText === "OK") {
+    //   localStorage.setItem('isLoged', 'true');
+    //   this.setState({
+    //     isLoged: true,
+    //     code: '0'
+    //   })
+    // }
   }
   render() {
     if (this.state.isLoged === true && this.state.code === '0') {
@@ -53,7 +63,7 @@ class LoginForm extends Component {
       return <Redirect to='/Teacher'> </Redirect>
     }
     return (
-      <div className="Body" style={{ backgroundColor: "#e6ffff", width: "100%", height: "100vh" }}>
+      <div className="Body" style={{ backgroundColor: "#e6ffff", width: "100", height: "100vh" }}>
         <Label style={
           {
             backgroundColor: "white",
