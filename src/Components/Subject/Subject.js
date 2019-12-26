@@ -6,7 +6,7 @@
         constructor(){
             super();
             this.state = {
-                courseInfor : [{courseName : 'Toán rời rạc', schoolYear : '2019 - 2020'},{courseName : 'Xác suất thống kê', schoolYear : '2019 - 2020'}]
+                courseInfor : [{courseName : 'Toán rời rạc', schoolYear : '2019 - 2020'},{courseName : 'Xác suất thống kê', schoolYear : '2019 - 2020'}, {courseName : 'Giải tích', schoolYear : '2019-2020'}, {courseName : 'Xác suất thống kê', schoolYear : '2019 - 2020'}, {courseName : 'Giải tích', schoolYear : '2019-2020'}]
             }
         }   
         render() {
@@ -20,7 +20,6 @@
                     </div>   
                     )
                     })}
-
                 </div>
             );
         }
