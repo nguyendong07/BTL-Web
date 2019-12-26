@@ -2,13 +2,11 @@ const mysql = require('mysql');
 
 const sv = { tk:'sv1', mk:'1' }
 // khoi tao ket noi
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456789',
-    database: 'sql_database'
-});
-//cau lenh truy van
+// const connection = require('./config');
+const config = require('./Config');
+const connection = mysql.createConnection(config);
+ 
+
 var sql = "SELECT msv, mk FROM sv ";
 
 //Tra ket qua truy van

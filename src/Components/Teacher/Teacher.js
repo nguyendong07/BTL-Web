@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import HeaderElement from '../Header/HeaderElement';
-import Menu from '../Menu/Menu';
-import ListSubject from '../ListSubject/ListSubject';
-class Admin extends Component {
+import MenuTeacher from '../MenuTeacher/MenuTeacher';
+import ListClass from './ListClass';
+
+class Teacher extends Component {
     constructor(){
         super();
         this.state={
@@ -13,10 +14,10 @@ class Admin extends Component {
     render() {
         if(this.state.isLoged==="true"){
             return (
-                <div style = {{width : "100vw", height: "100vh"}}>       
+                <div>       
                     <HeaderElement></HeaderElement>
-                     <Menu></Menu> 
-                     <ListSubject></ListSubject>           
+                     <MenuTeacher></MenuTeacher> 
+                     <ListClass></ListClass>
                 </div>
             );
         }
@@ -25,4 +26,4 @@ class Admin extends Component {
         }
     }
 }
-export default Admin;
+export default Teacher;
