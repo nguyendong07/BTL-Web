@@ -3,13 +3,14 @@
     border-radius : 12px;
 }
 #frameSubject :hover { 
+    height: auto;
     border-radius:  12px;
 }
 #frameSubject {
-    height: 120px;
+    height: 100px;
     font-family: Arial, Helvetica, sans-serif;
     color: gray;
 }
 p{
-    margin-bottom: -10px;
+    margin-bottom: 0px;
 }

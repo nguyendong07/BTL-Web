@@ -1,12 +1,12 @@
 #btn1{
-    width: 150px;
+    width: 180px;
     margin-top: 120px;
     left: 260px;
     position: fixed;
     background-color: brown;
 }
 #btn2{
-    width: 150px;
+    width: 180px;
     margin-top: 120px;
     left: 560px;
     position: fixed;
@@ -22,12 +22,12 @@
 
 #btnModal{
     margin-top: 120px;
-    left: 660px;
+    left: 900px;
     position: fixed;
     background-color: brown;
 }
 #frameStudent {
-    height : 120px;
+    height : auto;
     width : 1000px;
     border : 1px solid black;
     margin : 30px;
