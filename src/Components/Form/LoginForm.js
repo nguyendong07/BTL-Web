@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 import './LoginForm.css'
 import axios from 'axios'
 class LoginForm extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -32,11 +31,13 @@ class LoginForm extends Component {
           localStorage.setItem('isLoged', 'true')
           localStorage.setItem('token', res.data)
           this.setState({
-            isLoged: true 
+            isLoged: true
           })
         }
       })
   }
+
+
   render() {
     if (this.state.isLoged === true && this.state.code === '0') {
       return <Redirect to='/Admin'></Redirect>

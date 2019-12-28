@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
-import ListSubject from '../ListSubject/ListSubject';
+import ListClass from './ListClass';
+
 class Teacher extends Component {
     constructor(){
         super();
@@ -16,7 +17,7 @@ class Teacher extends Component {
                 <div>       
                     <HeaderElement></HeaderElement>
                      <MenuTeacher></MenuTeacher> 
-                     <ListSubject></ListSubject>           
+                     <ListClass></ListClass>
                 </div>
             );
         }
