@@ -20,12 +20,12 @@ class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
   handleLogin() {
-    const host = 'http://192.168.1.105:4000/'
+    const host = 'http://localhost:4000/'
 
     axios.post(host, {
       userName: this.state.username,
       passWord: this.state.password
-    })
+    }) 
       .then((res) => {
         if (res.statusText === 'OK') {
           localStorage.setItem('isLoged', 'true')
@@ -66,7 +66,7 @@ class LoginForm extends Component {
                   fontFamily: "Arial, Helvetica, sans-serif",
                   fontSize: "20px",
                   float: "left",
-                  marginTop: "5px    "
+                  marginTop: "5px"
                 }}>Tài khoản
         </Label>
               <Input type="email" name="username" id="exampleEmail" placeholder="Email" onChange={this.handleChange} />
