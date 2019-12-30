@@ -10,10 +10,12 @@ export default function(){
         <div id="frame">
             {courseInfor.map(course => {
                 return (
+                    <Link to={'/GroupClass'} style = {{textDecoration : 'none', color :  'red'}}>
                     <div id="frameSubject">
-                        <p><Link to={'/GroupClass'} subName={course.tenmonthi}>{course.tenmonthi}</Link></p>
+                        <p style =  {{color : 'black'}}>{course.tenmonthi}</p>
                         <pre style={{ float: "right", marginRight: "20px" }}>Năm học : 2019-2020</pre>
                     </div>
+                    </Link>
                 )
             })}
         </div>

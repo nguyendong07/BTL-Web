@@ -1,0 +1,36 @@
+#if {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: 10000;
+    font-size: large;
+    font-weight: bold;
+}
+
+#cointainer-information {
+    height : 70vh;
+    width : 68vw; 
+    top : 21vh;
+    left : 23vw;
+    border-radius : 12px;
+    background-color: #e6ffff;
+    position :fixed;
+}
+
+#photo {
+    border: 1px solid #f1f1f1;
+    height : 200px;
+    width : 150px;
+    margin : 30px;
+    border-radius :12px;
+    float : left;
+    z-index: 1;
+    background-color: white;
+}
+
+#infor {
+    float : right; 
+    margin-Right : 500px;
+    margin-top : 30px;
+    border-radius : 12px
+}

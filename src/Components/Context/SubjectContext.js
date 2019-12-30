@@ -13,7 +13,7 @@ export class SubjectProvider extends Component {
     this.getSubject();
   }
   getSubject() {
-    const host = 'http://localhost:4000/'
+    const host = 'http://192.168.1.103:4000/'
     let getToken = localStorage.getItem('token')
 
     axios.get(host + 'student/subject', {
@@ -22,7 +22,6 @@ export class SubjectProvider extends Component {
       }
     })
     .then((res) => {
-      console.log(res.data)
         this.setState({ courseInfor: res.data })
       })
   }

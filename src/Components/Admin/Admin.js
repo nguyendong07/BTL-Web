@@ -7,12 +7,12 @@ class Admin extends Component {
     constructor() {
         super()
         this.state = {
-            isLoged: localStorage.getItem('isLoged')
+            isLoged: localStorage.getItem('userName') !== null && localStorage.getItem('userName') !=='admin'
         }
     }
 
     render() {
-        if (this.state.isLoged === "true") {
+        if (this.state.isLoged === true) {
             return (
                 <div style={{ width: "100vw", height: "100vh" }}>
                     <HeaderElement></HeaderElement>
@@ -21,9 +21,10 @@ class Admin extends Component {
                 </div>
             );
         }
-        else if (this.state.isLoged === "false") {
+        else if (this.state.isLoged === false) {
             return <Redirect to="/"></Redirect>
         }
+        return <div>aaaaaaaaa</div>
     }
 }
 export default Admin;
