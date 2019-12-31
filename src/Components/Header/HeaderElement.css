@@ -1,24 +1,31 @@
 #header-container {
-    background-color:#f1f1f1;
+    background-color :	#FFFAFA;
     height : 15vh; 
     border-radius : 1px;
     width: 100vw;
+    box-shadow: gainsboro 0.1em 0.05em;
 }
 
 #header-text {
     text-align: center;
     padding: 20px;
+    font-family: Comic Sans, Comic Sans MS, cursive;
+    text-shadow: white 0.1em 0.1em 0.2em
 }
 
 marquee {
+    padding-top: 3px;
     direction: right;
     width : 100%;
 }
 
-button {
-  right: 30px;
+#button-logout {
   height: 40px;
   width: 120px;
-  top :20px;
+  float: right;
   position: fixed;
+  top : 20px;
+  right: 20px;
+  z-index: 1;
+  box-shadow: black 0.1em 0.1em 0.2em;
 }

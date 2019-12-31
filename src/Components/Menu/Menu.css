@@ -1,36 +1,42 @@
 #body-menu {
-    background-color :#f1f1f1;
+    background-color :	#FFF5EE;
     width : 220px;
     margin-top : 5vh;
     border-top-right-radius : 12px;
     height: 80vh;
+    box-shadow: gainsboro 0.1em 0.1em 0.1em 0.05em;
 }
 
 p {  
-   
     font-size : 16px;
     font-weight: bold;
     padding: 10px;
     padding-right: 0px;
     margin: none;
+    
 }
-#area {   
+#area1 {   
     width: 220px; 
     height: 50px;
-} 
-#area :hover {
+    font-family: Comic Sans, Comic Sans MS, cursive;
+}
+
+#area1 :hover {
     background-color:grey;
     color: white;
+    font-family: Comic Sans, Comic Sans MS, cursive;
 }
-#areahead {
+#areahead1 {
     width: 220px; 
     height: 50px;
+    font-family: Comic Sans, Comic Sans MS, cursive;
 }
-#areahead :hover {
+#areahead1 :hover {
    width: 220px;
    background-color:grey;
    color: white;
    border-top-right-radius: 12px;
+   font-family: Comic Sans, Comic Sans MS, cursive;
 }
 link {
     font-size: 50px;
