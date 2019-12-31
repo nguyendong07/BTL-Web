@@ -1,14 +1,30 @@
 import React,{useState} from 'react'
 import '../Room/Room.css'
-
+import Axios from 'axios';
+import {URL_REGISTER_EXAMS} from '../../Config/Api';
 //import {SubjectContext} from '../Context/SubjectContext'
 export function Room(props) {
     const {roomInfo} = props
+    console.log(roomInfo);
+    function handleRegister(courseInfo){
+        return ()=>{
+            const formData = new FormData();
+            formData.append('examID',courseInfo.examID);
+            formData.append('room',courseInfo.room);
+            formData.append('courseName',courseInfo.courseName)
+            formData.append('scheduleID',courseInfo.scheduleID)
+            formData.append('courseID',courseInfo.courseID)
+            formData.append('token',courseInfo.token)
+            Axios.post(URL_REGISTER_EXAMS,formData).then(rs=>{
+                console.log(rs);
+            })
+        }
+    }
     return (
         <div id="frame-room">
             {roomInfo.map(course => {
                 return (
-                    <div id="frameSubject" >
+                    <div id="frameSubject" onClick={handleRegister(course)}>
                         <div style={{ float: "left" }}>
                             <pre style={{ fontSize: "20px", margin: "5px" }}>Phòng : {course.room}</pre>
                             <pre style={{ marginLeft: "15px" }}>Số máy : {course.slot}/{course.totalSlot} </pre>

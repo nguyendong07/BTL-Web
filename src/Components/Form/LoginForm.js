@@ -10,7 +10,7 @@ class LoginForm extends Component {
     this.state = {
       username: '',
       password: '',
-      isLoged: false,
+      isLoged: localStorage.getItem('token')!==null,
       code: '0'
     }
     this.handleLogin = this.handleLogin.bind(this)
@@ -28,12 +28,12 @@ class LoginForm extends Component {
       passWord: this.state.password
     }) 
       .then((res) => {
-        console.log(res)
+        //console.log(res)
         if (res.statusText === 'OK') {
           localStorage.setItem('userName', res.data.userName)
           localStorage.setItem('token', res.data.token)
           this.setState({
-            isLoged: true,
+            isLoged: localStorage.getItem('token')!=='',
             userName: localStorage.getItem('userName')
           })
         }
@@ -41,10 +41,11 @@ class LoginForm extends Component {
   }
 
   render() {
-    if (this.state.isLoged === true && this.state.userName !== 'admin') {
+   // console.log(this.state.isLoged)
+    if (this.state.isLoged === true && localStorage.getItem('userName') !== 'admin') {
       return <Redirect to='/Student'></Redirect>
     }
-    else if (this.state.isLoged === true && this.state.userName ==='admin') {
+    else if (this.state.isLoged === true && localStorage.getItem('userName') ==='admin') {
       return <Redirect to='/Teacher'> </Redirect>
     }
     else {
