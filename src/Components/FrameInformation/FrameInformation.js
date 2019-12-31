@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 import '../FrameInformation/FrameInformation.css'
+import Axios from 'axios';
+import {URL_GET_STUDENT_INFO} from '../../Config/Api';
 class FrameInformation extends Component {
     constructor() {
         super()
         this.state = {
             name : '',
             id : '',
-            class : '',
+            class : 'bbbb',
             email : ''
         }
     }
-
+    componentDidMount(){
+        const studentID = localStorage.getItem('userName');
+        const url =`${URL_GET_STUDENT_INFO}/${studentID}`;
+        Axios.get(url).then(rs=>{
+            this.setState({
+                name: rs.data.studentName,
+                id: rs.data.studentID,
+                email:rs.data.email
+            })
+        })
+    }
     render() {
         return (
             <div id = "container" style = {

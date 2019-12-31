@@ -11,7 +11,7 @@ export default function(){
             {courseInfor.map(course => {
                 return (
                     <div id="frameSubject">
-                        <p><Link to={'/GroupClass'} subName={course.tenmonthi}>{course.tenmonthi}</Link></p>
+                        <p><Link to={`/GroupClass/${course.courseChar}`}>{course.courseName}</Link></p>
                         <pre style={{ float: "right", marginRight: "20px" }}>Năm học : 2019-2020</pre>
                     </div>
                 )

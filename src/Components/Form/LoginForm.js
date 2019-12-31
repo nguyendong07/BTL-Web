@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Label, FormGroup, Input, Button } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
+import {URL_LOGIN} from '../../Config/Api'
 import './LoginForm.css'
 import axios from 'axios'
 class LoginForm extends Component {
@@ -20,16 +21,18 @@ class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
   handleLogin() {
-    const host = 'http://localhost:4000/'
+    const host = URL_LOGIN;
 
     axios.post(host, {
       userName: this.state.username,
       passWord: this.state.password
     }) 
       .then((res) => {
+        console.log(res)
         if (res.statusText === 'OK') {
-          localStorage.setItem('isLoged', 'true')
-          localStorage.setItem('token', res.data)
+          localStorage.setItem('isLoged', 'true');
+          localStorage.setItem('userName',res.data.userName)
+          localStorage.setItem('token', res.data.token)
           this.setState({
             isLoged: true
           })

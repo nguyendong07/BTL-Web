@@ -1,5 +1,6 @@
-import React, { createContext, Component } from 'react';
+import React, {Component } from 'react';
 import axios from 'axios';
+import {URL_GET_SUBJECT} from '../../Config/Api';
 export const SubjectContext = React.createContext();
 export class SubjectProvider extends Component {
   constructor() {
@@ -13,16 +14,17 @@ export class SubjectProvider extends Component {
     this.getSubject();
   }
   getSubject() {
-    const host = 'http://localhost:4000/'
+    const studentID = localStorage.getItem('userName');
+    const url = `${URL_GET_SUBJECT}/${studentID}`;
     let getToken = localStorage.getItem('token')
 
-    axios.get(host + 'student/subject', {
+    axios.get(url, {
       headers: { 
         Authorization: 'Bearer ' + getToken
       }
     })
     .then((res) => {
-      console.log(res.data)
+        //console.log(res.data);
         this.setState({ courseInfor: res.data })
       })
   }

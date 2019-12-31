@@ -1,20 +1,22 @@
-import React, { useContext } from 'react'
+import React,{useState} from 'react'
 import '../Room/Room.css'
 
-import {SubjectContext} from '../Context/SubjectContext'
-export function Room() {
-    const { courseInfor } = useContext(SubjectContext)
+//import {SubjectContext} from '../Context/SubjectContext'
+export function Room(props) {
+    const {roomInfo} = props
+    //const [roomInfo,setRoomInfo] = useState(props.roomInfo);
+    console.log(roomInfo);
     return (
         <div id="frame-room">
-            {courseInfor.map(course => {
+            {roomInfo.map(course => {
                 return (
                     <div id="frameSubject" >
                         <div style={{ float: "left" }}>
-                            <pre style={{ fontSize: "20px", margin: "5px" }}>Phòng : {course.maphongthi}</pre>
-                            <pre style={{ marginLeft: "15px" }}>Số máy : {course.Slot}/50 </pre>
+                            <pre style={{ fontSize: "20px", margin: "5px" }}>Phòng : {course.room}</pre>
+                            <pre style={{ marginLeft: "15px" }}>Số máy : {course.slot}/{course.totalSlot} </pre>
                         </div>
                         <div style={{ float: "right" }}>
-                            <p style={{ float: "right", fontSize: "18px", marginRight: "20px" }}>Thời gian {course.Time} Ngày {course.Date}  </p>
+                            <p style={{ float: "right", fontSize: "18px", marginRight: "20px" }}>Thời gian {course.startTime}-{course.endTime} Ngày {course.dateTime.slice(0,course.dateTime.indexOf('T'))}  </p>
                         </div>
                     </div>
                 )
@@ -23,5 +25,4 @@ export function Room() {
 
     )
 }
-
 export default Room
