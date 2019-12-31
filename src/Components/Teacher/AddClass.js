@@ -5,6 +5,8 @@ import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
+import Axios from 'axios';
+import {URL_GET_ALLCOURSES} from '../../Config/Api';
 const customStyles = {
     content: {
         top: '50%',
@@ -20,10 +22,7 @@ class AddClass extends Component {
     constructor() {
         super();
         this.state = {
-            courseInfor: [
-                { className: 'Tin học cơ sở 4', schoolYear: '2019 - 2020' },
-                { className: 'Phát triển ứng dụng Web', schoolYear: '2019 - 2020' }
-            ],
+            courseInfor: [],
             modalIsOpenAdd: false,
             modalIsOpenDel: false,
 
@@ -33,7 +32,14 @@ class AddClass extends Component {
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
     }
-
+    componentDidMount(){
+        Axios.get(URL_GET_ALLCOURSES).then(rs=>{
+            //console.log(rs.data);
+            this.setState({
+                courseInfor:rs.data
+            })
+        })
+    }
     renderButton() {
         return (
             <div>
@@ -161,10 +167,10 @@ class AddClass extends Component {
             <div id="frame">
                 {this.state.courseInfor.map(course => {
                     return (
-                        <Link to="/Teacher/AddClass/AddSubject" style={{ textDecoration: 'none' }}>
+                        <Link to="/Teacher/AddSubject" style={{ textDecoration: 'none' }}>
                             <div id="frameSubject">
                                 <p>
-                                    {course.className}
+                                    {course.courseName}
                                 </p>
                                 <p style={{ float: "right", marginRight: 10, fontSize: 16, }}>
                                     Học kỳ: {course.schoolYear}

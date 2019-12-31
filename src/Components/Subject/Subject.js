@@ -10,9 +10,9 @@ export default function(){
         <div id="frame">
             {courseInfor.map(course => {
                 return (
-                    <Link to={'/GroupClass'} style = {{textDecoration : 'none', color :  'red'}}>
+                    <Link to={`/GroupClass/${course.courseChar}`} style = {{textDecoration : 'none', color :  'red'}}>
                     <div id="frameSubject">
-                        <p><Link to={`/GroupClass/${course.courseChar}`}>{course.courseName}</Link></p>
+                        <p>{course.courseName}</p>
                         <pre style={{ float: "right", marginRight: "20px" }}>Năm học : 2019-2020</pre>
                     </div>
                     </Link>

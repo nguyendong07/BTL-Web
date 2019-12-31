@@ -1,10 +1,11 @@
-import React, { Component, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component} from 'react';
 import './ListStudent.css';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
+import Axios from 'axios';
+import {URL_GET_ALL_STUDENTS} from '../../Config/Api';
 const customStyles = {
     content: {
         top: '50%',
@@ -20,10 +21,7 @@ class ListStudent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            courseInfor: [
-                { name: 'Lê Văn Đức', msv: '17020695', class: 'K62 CB', schoolYear: '2019 - 2020' },
-                { name: 'Lê Văn Test', msv: '17020695', class: 'K62 CB', schoolYear: '2019 - 2020' },
-            ],
+            studentsInfo:[],
             modalIsOpenAdd: false,
             modalIsOpenDel: false,
         }
@@ -31,6 +29,14 @@ class ListStudent extends Component {
         this.closeModalAdd = this.closeModalAdd.bind(this);
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
+    }
+    componentDidMount(){
+        Axios.get(URL_GET_ALL_STUDENTS).then(rs=>{
+            //console.log(rs.data);
+            this.setState({
+                studentsInfo: rs.data
+            })
+        })
     }
     renderButton() {
         return (
@@ -62,12 +68,12 @@ class ListStudent extends Component {
     renderClass() {
         return (
             <div id="frame">
-                {this.state.courseInfor.map(course => {
+                {this.state.studentsInfo.map(student => {
                     return (
                         // <div style={{ textDecoration: 'none' }}>
                         <div id="frameStudent">
-                            <p>Họ và tên: {course.name}<br />
-                                Mã sinh viên: {course.msv}<br />
+                            <p>Họ và tên: {student.studentName}<br />
+                                Mã sinh viên: {student.studentID}<br />
                             </p>
                         </div>
                         // </div>

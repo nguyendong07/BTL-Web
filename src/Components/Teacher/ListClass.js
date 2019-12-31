@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './ListClass.css'
+
 class ListClass extends Component {
 
     constructor() {
@@ -12,7 +13,6 @@ class ListClass extends Component {
             ]
         }
     }
-
     renderClass() {
         return (
             <div id="frame">

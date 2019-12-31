@@ -28,9 +28,9 @@ function App() {
         <Route exact path="/Teacher/SubjectScreen" component={SubjectScreen}></Route>
         <Route exact path="/Teacher/ListSubject" component={ListSubject}></Route>
         <Route exact path="/GroupClass/:courseChar" component={GroupClass}></Route>
-        <Route exact path="/Teacher/ListSubject/ListStudent" component={ListStudent}></Route>
+        <Route exact path="/Teacher/ListStudent" component={ListStudent}></Route>
         <Route exact path="/Teacher/AddClass" component={AddClass}></Route>
-        <Route exact path="/Teacher/AddClass/AddSubject" component={AddSubject}></Route>
+        <Route exact path="/Teacher/AddSubject" component={AddSubject}></Route>
       </Switch>
     </SubjectProvider>
   </Brt>

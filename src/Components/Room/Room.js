@@ -4,8 +4,6 @@ import '../Room/Room.css'
 //import {SubjectContext} from '../Context/SubjectContext'
 export function Room(props) {
     const {roomInfo} = props
-    //const [roomInfo,setRoomInfo] = useState(props.roomInfo);
-    console.log(roomInfo);
     return (
         <div id="frame-room">
             {roomInfo.map(course => {
