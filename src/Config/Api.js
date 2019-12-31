@@ -5,3 +5,6 @@ export const URL_GET_STUDENT_INFO =`${ROOT_API}/student`;
 export const URL_GET_ROOM_INFO = `${ROOT_API}/getListRoom`;
 export const URL_GET_ALLCOURSES =`${ROOT_API}/getCourse`;
 export const URL_GET_ALL_STUDENTS =`${ROOT_API}/getAllStudent`;
+export const URL_GET_Students_OF_SUBJECT =`${ROOT_API}/getListStudent`;
+export const URL_GET_SCHEDULE = `${ROOT_API}/getSchedule`;
+export const URL_GET_EXAMS_OF_SCHEDULE =`${ROOT_API}/getExam`

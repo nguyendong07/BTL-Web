@@ -166,8 +166,9 @@ class AddClass extends Component {
         return (
             <div id="frame">
                 {this.state.courseInfor.map(course => {
+                    const url = `/Teacher/StudentOfSubject/${course.courseID}/${course.courseChar}`;
                     return (
-                        <Link to="/Teacher/AddSubject" style={{ textDecoration: 'none' }}>
+                        <Link to={url} style={{ textDecoration: 'none' }}>
                             <div id="frameSubject">
                                 <p>
                                     {course.courseName}
