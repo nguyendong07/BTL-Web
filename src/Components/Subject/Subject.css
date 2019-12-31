@@ -4,5 +4,8 @@
     border : 1px solid black;
     margin : 30px;
     border-radius : 13px;
-    
+}
+
+link {
+    color: black;
 }
