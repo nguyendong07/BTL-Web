@@ -12,8 +12,10 @@ import SubjectScreen from './Components/Teacher/SubjectScreen'
 import ListStudent from './Components/Teacher/ListStudent'
 import ListSubject from './Components/Teacher/ListSubject'
 import AddClass from './Components/Teacher/AddClass'
-import AddSubject from './Components/Teacher/AddSubject'
-import { SubjectProvider } from './Components/Context/SubjectContext'
+import StudentsOfSubject from './Components/Teacher/StudentOfSubject';
+import ListScheduleExams from './Components/Teacher/Schedule/ListScheduleExams';
+import { SubjectProvider } from './Components/Context/SubjectContext';
+import ExamsOfSchedule from './Components/Teacher/ExamsOfSchedule/ExamsOfSchedule'
 function App() {
   return <Brt>
     <SubjectProvider>
@@ -30,7 +32,9 @@ function App() {
         <Route exact path="/GroupClass/:courseChar" component={GroupClass}></Route>
         <Route exact path="/Teacher/ListStudent" component={ListStudent}></Route>
         <Route exact path="/Teacher/AddClass" component={AddClass}></Route>
-        <Route exact path="/Teacher/AddSubject" component={AddSubject}></Route>
+        <Route exact path="/Teacher/StudentOfSubject/:courseID/:courseChar" component={StudentsOfSubject}></Route>
+        <Route exact path="/Teacher/Schedule" component={ListScheduleExams} />
+        <Route exact path="/Teacher/Schedule/:scheduleID" component={ExamsOfSchedule} />
       </Switch>
     </SubjectProvider>
   </Brt>

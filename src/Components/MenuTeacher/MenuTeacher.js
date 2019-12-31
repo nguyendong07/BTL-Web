@@ -31,6 +31,19 @@ class MenuTeacher extends Component {
                             </Link>
                     </p>
                 </div >
+                <div id="area" >
+                    <p>
+                        <Link to="/Teacher/Schedule"
+                            style={{
+                                textDecoration: 'none',
+                                color: "black",
+                                fontSize: '16px',
+                                fontWeight: 'bold',
+                            }}>
+                            QUẢN LÝ CA THI
+                            </Link>
+                    </p>
+                </div >
             </div >
 
         );

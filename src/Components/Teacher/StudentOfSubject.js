@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './ListClass.css'
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
+import Axios from 'axios';
+import {URL_GET_Students_OF_SUBJECT} from '../../Config/Api';
 const customStyles = {
     content: {
         top: '50%',
@@ -16,13 +17,10 @@ const customStyles = {
     }
 };
 class AddSubject extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            courseInfor: [
-                { className: 'Tin học cơ sở 4', Time: "7h30", Date: "2/1/2020", Slot: "0/50", Room: '3-G3' },
-                { className: 'Tin học cơ sở 4', Time: "7h30", Date: "1/1/2020", Slot: "5/50", Room: '301-GD2' },
-            ],
+            studentInfo:[],
             modalIsOpenAdd: false,
             modalIsOpenDel: false,
         }
@@ -30,9 +28,21 @@ class AddSubject extends Component {
         this.closeModalAdd = this.closeModalAdd.bind(this);
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
+        this.getStudentOfSubject = this.getStudentOfSubject.bind(this);
     }
-
-
+    componentDidMount(){
+        this.getStudentOfSubject();
+    }
+    getStudentOfSubject(){
+        const {courseID,courseChar} = this.props.match.params;
+        const url = `${URL_GET_Students_OF_SUBJECT}/${courseID}/${courseChar}`;
+        Axios.get(url).then(rs=>{
+            console.log(rs.data);
+            this.setState({
+                studentInfo:rs.data
+            })
+        })
+    }
     renderButton() {
         return (
             <div>
@@ -171,7 +181,7 @@ class AddSubject extends Component {
     renderClass() {
         return (
             <div id="frame">
-                {this.state.courseInfor.map(course => {
+                {this.state.studentInfo.map(course => {
                     return (
 
                         <div id="frameSubject" style={{ textDecoration: 'none' }}>
@@ -179,12 +189,12 @@ class AddSubject extends Component {
                                 <p>{course.className}</p>
                             </div>
                             <div style={{ fontSize: 16, marginLeft: 15 }}>
-                                Số lượng máy: {course.Slot}<br />
-                                Phòng: {course.Room}
+                                Họ và tên : {course.studentName}<br />
+                                MSSV: {course.studentID}
                             </div>
                             <div style={{ fontSize: 16, float: 'right', marginRight: 20, marginTop: -50, fontWeight: 600 }}>
-                                Thời gian: {course.Time}<br />
-                                Ngày: {course.Date}
+                                courseID: {course.courseID}<br />
+                                courseChar: {course.courseChar}
                             </div>
                         </div>
 
@@ -195,6 +205,7 @@ class AddSubject extends Component {
     }
 
     render() {
+        //console.log(this.props.match.params);
         return (
             <>
                 <HeaderElement></HeaderElement>
