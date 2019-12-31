@@ -19,22 +19,24 @@ export default function(){
   return(
     <React.Fragment>
       <HeaderElement></HeaderElement>
+      <div id = "container-listschedule">
       <MenuTeacher></MenuTeacher>
-      <div id="frame">
+       <div id = "frame-listschedule">
         {schedule.map(item => {
           const url =`/Teacher/Schedule/${item.scheduleID}`
           return (
               // <div style={{ textDecoration: 'none' }}>
-              <Link to={url}>
-                <div id="frameSchedule">
-                    <p>scheduel ID: {item.scheduleID}<br />
-                        school year: {item.schoolYear}<br />
+              <Link to={url} style = {{textDecoration :'none'}} >
+                <div id="frameSchedule" >
+                    <p > Kì thi: {item.scheduleID}<br />
+                        Năm học: {item.schoolYear}<br />
                     </p>
                 </div>
               </Link>
               // </div>
           )
         })}
+        </div>
       </div>
     </React.Fragment>
   )

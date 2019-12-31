@@ -1,42 +1,36 @@
-#body {
-    background-color: #f1f1f1;
-    width: 220px;
-    height: 520px;
+#body-menu-teacher {
+    background-color: #FFF5EE;
+    width: 16vw;
+    height: 80vh;
     margin-top: 30px;
     border-top-right-radius: 12px;
+    box-shadow: gainsboro 0.1em 0.1em 0.1em 0.05em;
 }
-
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     padding: 10px;
     padding-right: 0px;
     margin: none;
+    display: flex;
 }
 
-#area {
+#area-teacher {
     width: 220px;
     height: 50px;
 }
 
-#area :hover {
+#area-teacher :hover {
     background-color: grey;
     color: white;
 }
-
-#areahead {
+#areahead-teacher {
     width: 220px;
-    height: 50px;
+    height: 50px; 
 }
-
-#areahead :hover {
+#areahead-teacher :hover {
     width: 220px;
     background-color: grey;
     color: white;
     border-top-right-radius: 12px;
 }
-
-link {
-    font-size: 50px;
-}
-
