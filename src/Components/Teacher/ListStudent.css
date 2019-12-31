@@ -1,15 +1,24 @@
+#container-liststudent {
+   display: flex;
+}
+
+
+#frame-button-liststudent {
+    display: flex;
+     
+}
+
+
 #btn1{
     width: 180px;
-    margin-top: 120px;
     left: 260px;
-    position: fixed;
     background-color: brown;
+    height: 40px;
 }
 #btn2{
     width: 180px;
     margin-top: 120px;
     left: 560px;
-    position: fixed;
     background-color: brown;
 }
 #btn3{

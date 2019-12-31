@@ -1,0 +1,13 @@
+#container-examsofschedule {
+    display: flex;
+}
+
+#frame-examsofshedule {
+    margin-left: 4vw;
+    margin-top: 2vh;
+  }
+  
+#frame-examsofshedule :hover {
+    background-color: azure;
+    border-radius: 13px;
+  }

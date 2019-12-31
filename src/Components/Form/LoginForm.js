@@ -42,7 +42,7 @@ class LoginForm extends Component {
 
   render() {
     if (this.state.isLoged === true && this.state.userName !== 'admin') {
-      return <Redirect to='/Admin'></Redirect>
+      return <Redirect to='/Student'></Redirect>
     }
     else if (this.state.isLoged === true && this.state.userName ==='admin') {
       return <Redirect to='/Teacher'> </Redirect>
