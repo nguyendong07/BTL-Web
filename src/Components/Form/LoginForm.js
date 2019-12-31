@@ -29,7 +29,7 @@ class LoginForm extends Component {
       .then((res) => {
         if (res.statusText === 'OK') {
           localStorage.setItem('isLoged', 'true')
-          localStorage.setItem('token', res.data)
+          localStorage.setItem('token', res.data.token)
           this.setState({
             isLoged: true
           })

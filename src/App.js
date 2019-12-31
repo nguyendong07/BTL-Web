@@ -16,23 +16,23 @@ import AddSubject from './Components/Teacher/AddSubject'
 import { SubjectProvider } from './Components/Context/SubjectContext'
 function App() {
   return <Brt>
-    <SubjectProvider>
-      <Switch>
-        <Route exact path="/" component={LoginForm}></Route>
-        <Route exact path="/admin" component={Admin} />
-        <Route exact path="/Resigter" component={Resigter} />
-        <Route exact path="/Information" component={Information} />
-        <Route exact path="/resultRegister" component={resultRegister}></Route>
-        <Route exact path="/Notification" component={Notification}></Route>
-        <Route exact path="/Teacher" component={Teacher}></Route>
-        <Route exact path="/Teacher/SubjectScreen" component={SubjectScreen}></Route>
-        <Route exact path="/Teacher/ListSubject" component={ListSubject}></Route>
+    <Switch>
+      <Route exact path="/" component={LoginForm}></Route>
+      <Route exact path="/Resigter" component={Resigter} />
+      <Route exact path="/Information" component={Information} />
+      <Route exact path="/resultRegister" component={resultRegister}></Route>
+      <Route exact path="/Notification" component={Notification}></Route>
+      <Route exact path="/Teacher" component={Teacher}></Route>
+      <Route exact path="/Teacher/SubjectScreen" component={SubjectScreen}></Route>
+      <Route exact path="/Teacher/ListSubject" component={ListSubject}></Route>
+      <SubjectProvider>
         <Route exact path="/GroupClass" component={GroupClass}></Route>
-        <Route exact path="/Teacher/ListSubject/ListStudent" component={ListStudent}></Route>
-        <Route exact path="/Teacher/AddClass" component={AddClass}></Route>
-        <Route exact path="/Teacher/AddClass/AddSubject" component={AddSubject}></Route>
-      </Switch>
-    </SubjectProvider>
+        <Route exact path="/admin" component={Admin} />
+      </SubjectProvider>
+      <Route exact path="/Teacher/ListSubject/ListStudent" component={ListStudent}></Route>
+      <Route exact path="/Teacher/AddClass" component={AddClass}></Route>
+      <Route exact path="/Teacher/AddClass/AddSubject" component={AddSubject}></Route>
+    </Switch>
   </Brt>
 }
 export default App
