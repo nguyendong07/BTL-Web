@@ -186,11 +186,14 @@ class ListStudent extends Component {
                 <div style={{ float: 'left' }}>
                     <MenuTeacher />
                 </div>
-                <div style={{ position: "fixed", top: "20vh", left: "20vw", height: "2vh", zIndex: "1", width: "80vw", backgroundColor: "white" }}>
+
+                <div
+                    style = {{float : 'right'}}
+                >
                     {this.renderButton()}
-                </div>
-                <div style={{ float: 'right', marginTop: '10vh', zIndex: '-1' }}>
                     {this.renderClass()}
+                    {this.renderModalAdd()}
+                    {this.renderModalDel()}
                 </div>
                 {this.renderModalAdd()}
                 {this.renderModalDel()}
