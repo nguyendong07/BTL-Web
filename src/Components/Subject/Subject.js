@@ -1,19 +1,21 @@
-import React, {useContext } from 'react'
+import React, { useContext } from 'react'
 import '../Subject/Subject.css'
 import { Link } from 'react-router-dom'
-import {SubjectContext} from '../Context/SubjectContext'
+import { SubjectContext } from '../Context/SubjectContext'
 
-export default function(){
+export default function () {
     const { courseInfor } = useContext(SubjectContext);
     return (
-        <div id="frame">
+        <div id="frame"
+            style={{ float: 'right', marginTop: "20vh" }}
+        >
             {courseInfor.map(course => {
                 return (
-                    <Link to={`/GroupClass/${course.courseChar}`} style = {{textDecoration : 'none', color :  'red'}}>
-                    <div id="frameSubject">
-                        <p>{course.courseName}</p>
-                        <pre style={{ float: "right", marginRight: "20px" }}>Năm học : 2019-2020</pre>
-                    </div>
+                    <Link to={`/GroupClass/${course.courseChar}`} style={{ textDecoration: 'none', color: 'red' }}>
+                        <div id="frameSubject">
+                            <p>{course.courseName}</p>
+                            <pre style={{ float: "right", marginRight: "20px" }}>Năm học : 2019-2020</pre>
+                        </div>
                     </Link>
                 )
             })}
