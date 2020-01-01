@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
-import { Button } from 'reactstrap';
+import { Label, Input, Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
 import { URL_GET_Students_OF_SUBJECT } from '../../Config/Api';
@@ -13,7 +13,8 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        zIndex: '2'   
     }
 };
 class AddSubject extends Component {
@@ -23,15 +24,25 @@ class AddSubject extends Component {
             studentInfo: [],
             modalIsOpenAdd: false,
             modalIsOpenDel: false,
+            studentID: '',
+            classStudent: '',
+            studentName: '',
         }
         this.openModalAdd = this.openModalAdd.bind(this);
         this.closeModalAdd = this.closeModalAdd.bind(this);
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
         this.getStudentOfSubject = this.getStudentOfSubject.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+
     }
     componentDidMount() {
         this.getStudentOfSubject();
+    }
+
+    handleChange(e) {
+        // e.preventDefault();
+        this.setState({ [e.target.name]: e.target.value })
     }
     getStudentOfSubject() {
         const { courseID, courseChar } = this.props.match.params;
@@ -45,32 +56,35 @@ class AddSubject extends Component {
     }
     renderButton() {
         return (
-            <div>
+            <>
                 <Button
                     style={{
                         textDecoration: 'none', color: 'white',
                         width: 150,
                         backgroundColor: 'brown',
-                        marginTop: -50,
-                        marginLeft: 30
+                        marginTop: 0,
+                        marginLeft: 30,
+                        position: "fixed",
                     }}
                     onClick={this.openModalAdd}
                 >
                     Thêm sinh viên
-                </Button>
+        </Button>
                 <Button
                     style={{
                         textDecoration: 'none',
-                        color: 'white', 
+                        color: 'white',
                         backgroundColor: 'brown',
-                        marginTop: -50,
-                        marginLeft: 100
+                        marginTop: 0,
+                        marginLeft: 400,
+                        position: "fixed"
+
                     }}
                     onClick={this.openModalDel}
                 >
                     Xóa sinh viên
-                </Button>
-            </div>
+        </Button>
+            </>
         )
     }
 
@@ -97,12 +111,34 @@ class AddSubject extends Component {
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
-                        <label name="class">
-                            Mã sinh viên: </label>
-                        <input type="text" name="class"
-                            style={{ float: 'right', marginLeft: 10 }} />
+                        <Label htmlFor="studentName">
+                            Sinh viên: </Label>
+                        <Input type="text"
+                            name="studentName"
+                            onChange={this.handleChange}
+                            style={{ float: 'right', marginLeft: 10 }}
+                        />
                     </div>
                     <div style={{ clear: 'both' }}></div>
+                    <div >
+                        <Label htmlFor="studentID">
+                            Mã sinh viên: </Label>
+                        <Input type="text"
+                            name="studentID"
+                            onChange={this.handleChange}
+                            style={{ float: 'right', marginLeft: 10 }}
+                        />
+                    </div>
+                    <div style={{ clear: 'both' }}></div>
+                    <div >
+                        <Label htmlFor="classStudent">
+                            Lớp số: </Label>
+                        <Input type="text"
+                            name="classStudent"
+                            onChange={this.handleChange}
+                            style={{ float: 'right', marginLeft: 10 }}
+                        />
+                    </div>
                     <div style={{ clear: 'both' }}></div>
                     <button
                         style={{ marginTop: 20, marginLeft: 120 }}
@@ -157,54 +193,59 @@ class AddSubject extends Component {
     }
 
     renderClass() {
-        return (
-            <div style={{ marginTop: 50 }}>
-                {this.renderButton()}
-                {this.state.studentInfo.map(course => {
-                    return (
-                        <div id="frameSubject" style={{ textDecoration: 'none' }}>
-                            <p>Họ và tên : {course.studentName}</p>
-                            <div style={{ fontSize: 16, marginLeft: 15 }}>
-                                MSSV: {course.studentID}<br />
-                                Lớp số: {course.courseID}<br />
+        if (this.state.studentInfo.studentName !== '' && this.state.studentInfo[0])
+            return (
+                <div style={{ marginTop: 50 }}>
+                    {this.state.studentInfo.map(course => {
+                        return (
+                            <div id="frameSubject" style={{ textDecoration: 'none' }}>
+                                <p>Họ và tên : {course.studentName}</p>
+                                <div style={{ fontSize: 16, marginLeft: 15 }}>
+                                    MSSV: {course.studentID}<br />
+                                    Lớp số: {course.courseID}<br />
+                                </div>
+                                <div
+                                    style={{
+                                        fontSize: 16,
+                                        float: 'right',
+                                        marginRight: 20,
+                                        marginTop: -30
+                                    }}
+                                >
+                                    Mã môn học: {course.courseChar}
+                                </div>
                             </div>
-                            <div
-                                style={{
-                                    fontSize: 16,
-                                    float: 'right',
-                                    marginRight: 20,
-                                    marginTop: -30
-                                }}
-                            >
-                                Mã môn học: {course.courseChar}
-                            </div>
-                        </div>
 
-                    )
-                })}
-            </div>
-        )
+                        )
+                    })}
+                </div>
+            )
+        else
+            return (
+                <div>
+                    {this.renderButton()}
+                </div>
+            )
     }
 
     render() {
         //console.log(this.props.match.params);
         return (
-            <>
-                <HeaderElement></HeaderElement>
-                <div style={{ float: 'left' }}></div>
-                <MenuTeacher></MenuTeacher>
-                <div id="listsubject"
-
-                >
-
-                    <div style={{ float: 'right', marginTop: '20vh' }}>
-                        {this.renderClass()}
-                    </div>
-
-                    {this.renderModalAdd()}
-                    {this.renderModalDel()}
+            <div>
+                <HeaderElement />
+                <div style={{ float: 'left' }}>
+                    <MenuTeacher />
                 </div>
-            </>
+                <div style={{ position: "fixed", top: "20vh", left: "18vw", height: "5vh", zIndex: "1", width: "80vw", backgroundColor: "white" }}>
+                    {this.renderButton()}
+                </div>
+                <div style={{ float: 'right', marginTop: '20vh', zIndex: '-1' }}>
+
+                    {this.renderClass()}
+                </div>
+                {this.renderModalAdd()}
+                {this.renderModalDel()}
+            </div >
         );
     }
 }
