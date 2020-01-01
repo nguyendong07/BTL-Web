@@ -32,11 +32,11 @@ export function Room(props) {
                 return (
                     <div id="frameSubject" onClick={handleRegister(course)}>
                         <div style={{ float: "left" }}>
-                            <pre style={{ fontSize: "20px", margin: "5px" }}>Phòng : {course.room}</pre>
+                            <pre id = "course-room">Phòng : {course.room}</pre>
                             <pre style={{ marginLeft: "15px" }}>Số máy : {course.slot}/{course.totalSlot} </pre>
                         </div>
                         <div style={{ float: "right" }}>
-                            <p style={{ float: "right", fontSize: "18px", marginRight: "20px" }}>Thời gian {course.startTime}-{course.endTime} Ngày {course.dateTime.slice(0, course.dateTime.indexOf('T'))}  </p>
+                            <p id = "course-time">Thời gian {course.startTime}-{course.endTime} Ngày {course.dateTime.slice(0, course.dateTime.indexOf('T'))}  </p>
                         </div>
                     </div>
                 )

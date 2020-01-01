@@ -6,3 +6,13 @@
 #frameSubject :hover {
     border-radius:  12px;
 }
+
+#course-room {
+ font-size: 20px;
+ margin: 5px; 
+}
+
+#course-time{
+     font-Size:20px;
+     margin: 5px
+}

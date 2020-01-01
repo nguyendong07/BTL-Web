@@ -24,7 +24,6 @@ class Student extends Component {
         else if (this.state.isLoged === false) {
             return <Redirect to="/"></Redirect>
         }
-        return <div>aaaaaaaaa</div>
     }
 }
 export default Student;
