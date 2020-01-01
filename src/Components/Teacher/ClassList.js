@@ -4,17 +4,21 @@ import { Link } from 'react-router-dom';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { URL_GET_ALLCOURSES } from '../../Config/Api';
-import { Button } from 'reactstrap';
+import { Label,Input, Button } from 'reactstrap';
 import Modal from 'react-modal';
 
 const customStyles = {
     content: {
-        top: '50%',
+        width : "30vw", 
+        backgroundColor : "white",
+        top: '60%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        zIndex:'3',
+        position : 'relative'
     }
 };
 
@@ -26,12 +30,16 @@ class ClassList extends Component {
             modalIsOpenDel: false,
             courseInfor: [],
             setCourseInfor: [],
-            
+            courseID: '',
+            courseName: '',
+            courseChar: '',
         }
         this.openModalAdd = this.openModalAdd.bind(this);
         this.closeModalAdd = this.closeModalAdd.bind(this);
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+
     }
     componentDidMount() {
         Axios.get(URL_GET_ALLCOURSES).then(rs => {
@@ -40,7 +48,10 @@ class ClassList extends Component {
             this.setState({ courseInfor: rs.data })
         })
     }
-
+    handleChange(e) {
+        // e.preventDefault();
+        this.setState({ [e.target.name]: e.target.value })
+    }
     renderButton() {
         return (
             <>
@@ -52,6 +63,7 @@ class ClassList extends Component {
                         marginTop: 0,
                         marginLeft: 30,
                         position: "fixed",
+                        zIndex:'1'
                     }}
                     onClick={this.openModalAdd}
                 >
@@ -64,8 +76,8 @@ class ClassList extends Component {
                         backgroundColor: 'brown',
                         marginTop: 0,
                         marginLeft: 400,
-                        position: "fixed"
-
+                        position: "fixed",
+                        zIndex:'1'
                     }}
                     onClick={this.openModalDel}
                 >
@@ -94,16 +106,38 @@ class ClassList extends Component {
                     style={customStyles}
                 >
                     <div>
-                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Thêm sinh viên </h2>
+                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Thêm môn thi </h2>
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
-                        <label name="class">
-                            Mã sinh viên: </label>
-                        <input type="text" name="class"
-                            style={{ float: 'right', marginLeft: 10 }} />
+                        <Label htmlFor="courseName">
+                            Môn thi: </Label>
+                        <Input type="text"
+                            name="courseName"
+                            onChange={this.handleChange} 
+                            style={{ float: 'right', marginLeft: 10 }}
+                            />
                     </div>
                     <div style={{ clear: 'both' }}></div>
+                    <div >
+                        <Label htmlFor="courseChar">
+                            Mã môn: </Label>
+                        <Input type="text"
+                            name="courseChar"
+                            onChange={this.handleChange} 
+                            style={{ float: 'right', marginLeft: 10 }}
+                            />
+                    </div>
+                    <div style={{ clear: 'both' }}></div>
+                    <div >
+                        <Label htmlFor="courseID">
+                            Lớp số: </Label>
+                        <Input type="text"
+                            name="courseID"
+                            onChange={this.handleChange} 
+                            style={{ float: 'right', marginLeft: 10 }}
+                            />
+                    </div>
                     <div style={{ clear: 'both' }}></div>
                     <button
                         style={{ marginTop: 20, marginLeft: 120 }}
@@ -136,14 +170,28 @@ class ClassList extends Component {
                     style={customStyles}
                 >
                     <div>
-                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Xóa sinh viên </h2>
+                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Xóa môn thi </h2>
+                    </div>
+                    <div style={{ clear: 'both' }}></div>
+                    <div style={{ clear: 'both' }}></div>
+                    <div >
+                        <Label htmlFor="courseName">
+                            Môn thi: </Label>
+                        <Input type="text"
+                            name="courseName"
+                            onChange={this.handleChange} 
+                            style={{ float: 'right', marginLeft: 10 }}
+                            />
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
-                        <label name="class">
-                            Mã sinh viên: </label>
-                        <input type="text" name="class"
-                            style={{ float: 'right', marginLeft: 10 }} />
+                        <Label htmlFor="courseID">
+                            Lớp số: </Label>
+                        <Input type="text"
+                            name="courseID"
+                            onChange={this.handleChange} 
+                            style={{ float: 'right', marginLeft: 10 }}
+                            />
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <button
@@ -203,8 +251,10 @@ class ClassList extends Component {
 
                     {this.renderClass()}
                 </div>
+                <div style = {{zIndex : "888", backgroundColor : 'white'    }}>
                 {this.renderModalAdd()}
                 {this.renderModalDel()}
+                </div>
             </div >
         )
     }
