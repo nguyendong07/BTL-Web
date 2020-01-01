@@ -7,12 +7,13 @@ class Resigter extends Component {
     render() {
         return (
             <div >
-               <HeaderElement></HeaderElement>
-            <div>
-                <Menu></Menu>
-                <ListSubject></ListSubject>
+                <HeaderElement></HeaderElement>
+                <div style={{ float: 'left' }}>
+                    <Menu />
+                </div>
+                <ListSubject />
             </div>
-            </div>
+
         );
     }
 }
