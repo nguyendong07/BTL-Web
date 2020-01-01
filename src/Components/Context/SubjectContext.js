@@ -1,6 +1,6 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import {URL_GET_SUBJECT} from '../../Config/Api';
+import { URL_GET_SUBJECT } from '../../Config/Api';
 export const SubjectContext = React.createContext();
 export class SubjectProvider extends Component {
   constructor() {
@@ -10,7 +10,7 @@ export class SubjectProvider extends Component {
     }
     this.getSubject = this.getSubject.bind(this)
   }
-  componentDidMount(){
+  componentDidMount() {
     this.getSubject();
   }
   getSubject() {
@@ -19,18 +19,18 @@ export class SubjectProvider extends Component {
     let getToken = localStorage.getItem('token')
 
     axios.get(url, {
-      headers: { 
+      headers: {
         Authorization: 'Bearer ' + getToken
       }
     })
-    .then((res) => {
+      .then((res) => {
         //console.log(res.data);
         this.setState({ courseInfor: res.data })
       })
   }
   render() {
     return (
-      <SubjectContext.Provider value ={{courseInfor : this.state.courseInfor, getSubject:this.getSubject}}>
+      <SubjectContext.Provider value={{ courseInfor: this.state.courseInfor, getSubject: this.getSubject }}>
         {this.props.children}
       </SubjectContext.Provider>
     )
