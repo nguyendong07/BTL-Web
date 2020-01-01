@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import './ListClass.css'
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
 import { URL_GET_Students_OF_SUBJECT } from '../../Config/Api';
+import './StudentOfSubject.css'
+
 const customStyles = {
     content: {
         top: '50%',
@@ -222,7 +223,6 @@ class AddSubject extends Component {
                 >
                     {this.renderButton()}
                     {this.renderClass()}
-
                     {this.renderModalAdd()}
                     {this.renderModalDel()}
                 </div>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
 import { URL_GET_ALLCOURSES } from '../../Config/Api';
+import './AddClass.css'
 const customStyles = {
     content: {
         top: '50%',
@@ -17,7 +17,6 @@ const customStyles = {
         transform: 'translate(-50%, -50%)'
     }
 };
-
 
 class AddClass extends Component {
 
@@ -45,29 +44,12 @@ class AddClass extends Component {
     renderButton() {
         return (
             <div>
-                <Button
-                    style={{
-                        textDecoration: 'none', color: 'white',
-                        width: 180,
-                        left: 260,
-                        position: 'fixed',
-                        backgroundColor: 'brown',
-                        marginTop:-50,
-                    }}
+                <Button id = "btn1"
                     onClick={this.openModalAdd}
                 >
                     Thêm lớp
                 </Button>
-                <Button
-                    style={{
-                        textDecoration: 'none',
-                        color: 'white',
-                        width: 180,
-                        left: 560,
-                        position: 'fixed',
-                        backgroundColor: 'brown',
-                        marginTop:-50,
-                    }}
+                <Button id = "btn2"
                     onClick={this.openModalDel}
                 >
                     Xóa lớp
