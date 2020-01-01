@@ -17,6 +17,8 @@ const customStyles = {
         transform: 'translate(-50%, -50%)'
     }
 };
+
+
 class AddClass extends Component {
 
     constructor() {
@@ -69,7 +71,7 @@ class AddClass extends Component {
                     onClick={this.openModalDel}
                 >
                     Xóa lớp
-                </Button>
+                </Button> */}
             </div>
         )
     }
@@ -201,10 +203,10 @@ class AddClass extends Component {
                 <div
                     style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
                 >
-                    {this.renderButton()}
-                    {this.renderModalAdd()}
+                    {/*  {this.renderButton()}
+                    {this.renderModalAdd()} */}
                     {this.renderClass()}
-                    {this.renderModalDel()}
+                    {/* {this.renderModalDel()} */}
                 </div>
             </>
         );

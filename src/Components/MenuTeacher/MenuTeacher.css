@@ -2,9 +2,10 @@
     background-color: #FFF5EE;
     width: 16vw;
     height: 80vh;
-    margin-top: 30px;
+    margin-top: 20vh;
     border-top-right-radius: 12px;
     box-shadow: gainsboro 0.1em 0.1em 0.1em 0.05em;
+    position: fixed;
 }
 p {
     font-family: Arial, Helvetica, sans-serif;

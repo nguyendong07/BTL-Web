@@ -1,10 +1,10 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import './ListStudent.css';
 import Modal from 'react-modal';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import Axios from 'axios';
-import {URL_GET_ALL_STUDENTS} from '../../Config/Api';
+import { URL_GET_ALL_STUDENTS } from '../../Config/Api';
 const customStyles = {
     content: {
         top: '50%',
@@ -20,7 +20,7 @@ class ListStudent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            studentsInfo:[],
+            studentsInfo: [],
             modalIsOpenAdd: false,
             modalIsOpenDel: false,
         }
@@ -29,8 +29,8 @@ class ListStudent extends Component {
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
     }
-    componentDidMount(){
-        Axios.get(URL_GET_ALL_STUDENTS).then(rs=>{
+    componentDidMount() {
+        Axios.get(URL_GET_ALL_STUDENTS).then(rs => {
             //console.log(rs.data);
             this.setState({
                 studentsInfo: rs.data
@@ -39,7 +39,7 @@ class ListStudent extends Component {
     }
     renderButton() {
         return (
-            <div id = "frame-button-listsst">
+            <div id="frame-button-listsst">
                 <button id="btn1"
                     style={{ textDecoration: 'none', color: 'white' }}
                     onClick={this.openModalAdd}
@@ -166,8 +166,10 @@ class ListStudent extends Component {
         return (
             <>
                 <HeaderElement></HeaderElement>
-                <div id = "container-liststudent">
                 <MenuTeacher></MenuTeacher>
+                <div
+                    style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
+                >
                     {/* {this.renderButton()} */}
                     {this.renderClass()}
                     {/* {this.renderModalAdd()} */}
