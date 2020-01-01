@@ -40,14 +40,30 @@ class ListStudent extends Component {
     renderButton() {
         return (
             <div id="frame-button-listsst">
-                <button id="btn1"
-                    style={{ textDecoration: 'none', color: 'white' }}
+                <button 
+                    style={{ 
+                        textDecoration: 'none', color: 'white',
+                        width: 150,
+                        backgroundColor: 'brown',
+                        marginTop: 0,
+                        left: "25vw",
+                        borderRadius : "8px",
+                        position: "fixed",
+                     }}
                     onClick={this.openModalAdd}
                 >
                     Thêm sinh viên
                 </button>
-                <button id="btn2"
-                    style={{ textDecoration: 'none', color: 'white' }}
+                <button 
+                    style={{ 
+                        textDecoration: 'none', color: 'white',
+                        width: 150,
+                        backgroundColor: 'brown',
+                        marginTop: 0,
+                        left: "60vw" ,
+                        position: "fixed",
+                        borderRadius : "8px"
+                     }}
                     onClick={this.openModalDel}
                 >
                     Xóa sinh viên
@@ -66,7 +82,7 @@ class ListStudent extends Component {
 
     renderClass() {
         return (
-            <div id="frame-liststudent" style = {{marginTop : "20vh"}}>
+            <div id="frame-liststudent" style={{ marginTop: "20vh" }}>
                 {this.state.studentsInfo.map(student => {
                     return (
                         // <div style={{ textDecoration: 'none' }}>
@@ -165,20 +181,27 @@ class ListStudent extends Component {
     render() {
         return (
             <>
-                <HeaderElement></HeaderElement>
-                <div style =  {{float: 'left'}}>
-                <MenuTeacher></MenuTeacher>
+             <div>
+                <HeaderElement />
+                <div style={{ float: 'left' }}>
+                    <MenuTeacher />
                 </div>
 
                 <div
                     style = {{float : 'right'}}
                 >
-                    {/* {this.renderButton()} */}
+                    {this.renderButton()}
                     {this.renderClass()}
-                    {/* {this.renderModalAdd()} */}
-                    {/* {this.renderModalDel()} */}
+                    {this.renderModalAdd()}
+                    {this.renderModalDel()}
                 </div>
+                {this.renderModalAdd()}
+                {this.renderModalDel()}
+            </div >
+               
             </>
+
+           
         );
     }
 }

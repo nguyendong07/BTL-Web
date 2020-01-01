@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../Header/HeaderElement.css';
-import {Button} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 export default class extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.handleLogout = this.handleLogout.bind(this);
     }
-    handleLogout(){
+    handleLogout() {
         localStorage.clear();
         window.location.href = "/"
     }
