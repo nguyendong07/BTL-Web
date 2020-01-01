@@ -17,22 +17,22 @@ p {
 }
 
 #area-teacher {
-    width: 220px;
+    width: 16vw;
     height: 50px;
 }
 
 #area-teacher :hover {
-    width: 205px;
+    width: 16vw;
     background-color: grey;
     color: white;
     
 }
 #areahead-teacher {
-    width: 220px;
+    width: 16vw;
     height: 50px; 
 }
 #areahead-teacher :hover {
-    width: 205px;
+    width: 16vw;
     background-color: grey;
     color: white;
     border-top-right-radius: 12px;

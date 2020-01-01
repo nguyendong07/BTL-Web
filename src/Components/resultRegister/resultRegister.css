@@ -5,15 +5,16 @@
 #result-register {
     width: 74vw;
     height: 70vh;
-    border: 1px solid black;
     left: 20vw;
     border-radius: 12px;
     position: fixed;
-    top : 22vh;
+    top : 19vh;
 }
 
 #table-result-register {
-    margin: 12vw;
+    margin-right: 1vw;
+    margin-left: 1.5vw ;
+    
 }
 
 h3 {
@@ -28,7 +29,7 @@ h3 {
 
 table {
     align-content: center;
-    width: 60vw;
+    width: 71.5vw;
 }
 td {
     width: 10px;

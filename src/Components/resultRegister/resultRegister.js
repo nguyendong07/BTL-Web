@@ -19,8 +19,9 @@ export default function () {
            <pre> Họ tên : {register[0].studentName}  </pre> 
            <pre> Lớp : {register[0].classStudent} </pre> 
           </div>
-           <div>
+           <div style = {{float : 'right', marginRight : "150px"}}>
            <pre>Mã sinh viên : {register[0].studentID}</pre>
+           <pre>Năm học : 2019 - 2020</pre>
            </div>
         </div>}
            <div id = "table-result-register">    
