@@ -5,7 +5,7 @@ import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
-import {URL_GET_Students_OF_SUBJECT} from '../../Config/Api';
+import { URL_GET_Students_OF_SUBJECT } from '../../Config/Api';
 const customStyles = {
     content: {
         top: '50%',
@@ -20,7 +20,7 @@ class AddSubject extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            studentInfo:[],
+            studentInfo: [],
             modalIsOpenAdd: false,
             modalIsOpenDel: false,
         }
@@ -30,16 +30,16 @@ class AddSubject extends Component {
         this.closeModalDel = this.closeModalDel.bind(this);
         this.getStudentOfSubject = this.getStudentOfSubject.bind(this);
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getStudentOfSubject();
     }
-    getStudentOfSubject(){
-        const {courseID,courseChar} = this.props.match.params;
+    getStudentOfSubject() {
+        const { courseID, courseChar } = this.props.match.params;
         const url = `${URL_GET_Students_OF_SUBJECT}/${courseID}/${courseChar}`;
-        Axios.get(url).then(rs=>{
+        Axios.get(url).then(rs => {
             console.log(rs.data);
             this.setState({
-                studentInfo:rs.data
+                studentInfo: rs.data
             })
         })
     }
@@ -49,18 +49,25 @@ class AddSubject extends Component {
                 <Button
                     style={{
                         textDecoration: 'none', color: 'white',
-                        width: 180,
-                        marginTop: 120,
+                        width: 150,
                         left: 260,
                         position: 'fixed',
                         backgroundColor: 'brown',
+                        marginTop: -50,
                     }}
                     onClick={this.openModalAdd}
                 >
                     Thêm ca thi
                 </Button>
-                <Button id="btn2"
-                    style={{ textDecoration: 'none', color: 'white' }}
+                <Button
+                    style={{
+                        textDecoration: 'none',
+                        color: 'white',
+                        left: 560,
+                        position: 'fixed',
+                        backgroundColor: 'brown',
+                        marginTop: -50,
+                    }}
                     onClick={this.openModalDel}
                 >
                     Xóa ca thi
@@ -213,8 +220,9 @@ class AddSubject extends Component {
                 <div id="listsubject"
                     style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
                 >
-                    {this.renderClass()}
                     {this.renderButton()}
+                    {this.renderClass()}
+
                     {this.renderModalAdd()}
                     {this.renderModalDel()}
                 </div>

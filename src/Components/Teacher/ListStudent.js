@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import './ListStudent.css';
-
 import Modal from 'react-modal';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
@@ -41,7 +40,7 @@ class ListStudent extends Component {
     renderButton() {
         return (
             <div id = "frame-button-listsst">
-                <button id="btn21"
+                <button id="btn1"
                     style={{ textDecoration: 'none', color: 'white' }}
                     onClick={this.openModalAdd}
                 >
@@ -169,10 +168,10 @@ class ListStudent extends Component {
                 <HeaderElement></HeaderElement>
                 <div id = "container-liststudent">
                 <MenuTeacher></MenuTeacher>
-                    {this.renderButton()}
+                    {/* {this.renderButton()} */}
                     {this.renderClass()}
-                    {this.renderModalAdd()}
-                    {this.renderModalDel()}
+                    {/* {this.renderModalAdd()} */}
+                    {/* {this.renderModalDel()} */}
                 </div>
             </>
         );

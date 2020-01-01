@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './ListClass.css'
+
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
-import {URL_GET_ALLCOURSES} from '../../Config/Api';
+import { URL_GET_ALLCOURSES } from '../../Config/Api';
 const customStyles = {
     content: {
         top: '50%',
@@ -32,11 +32,11 @@ class AddClass extends Component {
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
     }
-    componentDidMount(){
-        Axios.get(URL_GET_ALLCOURSES).then(rs=>{
+    componentDidMount() {
+        Axios.get(URL_GET_ALLCOURSES).then(rs => {
             //console.log(rs.data);
             this.setState({
-                courseInfor:rs.data
+                courseInfor: rs.data
             })
         })
     }
@@ -47,17 +47,25 @@ class AddClass extends Component {
                     style={{
                         textDecoration: 'none', color: 'white',
                         width: 180,
-                        marginTop: 120,
                         left: 260,
                         position: 'fixed',
                         backgroundColor: 'brown',
+                        marginTop:-50,
                     }}
                     onClick={this.openModalAdd}
                 >
                     Thêm lớp
                 </Button>
-                <Button id="btn2"
-                    style={{ textDecoration: 'none', color: 'white' }}
+                <Button
+                    style={{
+                        textDecoration: 'none',
+                        color: 'white',
+                        width: 180,
+                        left: 560,
+                        position: 'fixed',
+                        backgroundColor: 'brown',
+                        marginTop:-50,
+                    }}
                     onClick={this.openModalDel}
                 >
                     Xóa lớp
@@ -164,6 +172,7 @@ class AddClass extends Component {
 
     renderClass() {
         return (
+       
             <div id="frame">
                 {this.state.courseInfor.map(course => {
                     const url = `/Teacher/StudentOfSubject/${course.courseID}/${course.courseChar}`;
