@@ -10,14 +10,13 @@ export class SubjectProvider extends Component {
     }
     this.getSubject = this.getSubject.bind(this)
   }
-  componentDidMount(){
-    this.getSubject();
+  componentDidMount() {
+    this.getSubject()
   }
   getSubject() {
     const studentID = localStorage.getItem('userName');
     const url = `${URL_GET_SUBJECT}/${studentID}`;
     let getToken = localStorage.getItem('token')
-
     axios.get(url, {
       headers: { 
         Authorization: 'Bearer ' + getToken
@@ -30,7 +29,7 @@ export class SubjectProvider extends Component {
   }
   render() {
     return (
-      <SubjectContext.Provider value ={{courseInfor : this.state.courseInfor, getSubject:this.getSubject}}>
+      <SubjectContext.Provider value={{ courseInfor: this.state.courseInfor, getSubject: this.getSubject }}>
         {this.props.children}
       </SubjectContext.Provider>
     )

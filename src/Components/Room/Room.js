@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import '../Room/Room.css'
 import Axios from 'axios';
 import {URL_REGISTER_EXAMS} from '../../Config/Api';
@@ -39,7 +39,6 @@ export function Room(props) {
                 )
             })}
         </div>
-
     )
 }
 export default Room

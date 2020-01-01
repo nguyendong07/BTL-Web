@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import {SubjectContext} from '../Context/SubjectContext'
 
 export default function(){
-    const { courseInfor } = useContext(SubjectContext);
+    const { courseInfor } = useContext(SubjectContext)
     return (
         <div id="frame">
             {courseInfor.map(course => {
