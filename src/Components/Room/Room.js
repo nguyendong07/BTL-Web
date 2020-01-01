@@ -36,7 +36,7 @@ export function Room(props) {
                             <pre style={{ marginLeft: "15px" }}>Số máy : {course.slot}/{course.totalSlot} </pre>
                         </div>
                         <div style={{ float: "right" }}>
-                            <p id = "course-time">Thời gian {course.startTime}-{course.endTime} Ngày {course.dateTime.slice(0, course.dateTime.indexOf('T'))}  </p>
+                            <p id = "course-time" style = {{fontSize : "18px"}}>Thời gian {course.startTime}-{course.endTime} Ngày {course.dateTime.slice(0, course.dateTime.indexOf('T'))}  </p>
                         </div>
                     </div>
                 )

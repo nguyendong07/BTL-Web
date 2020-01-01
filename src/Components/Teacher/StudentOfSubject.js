@@ -8,7 +8,7 @@ import { URL_GET_Students_OF_SUBJECT } from '../../Config/Api';
 
 const customStyles = {
     content: {
-        top: '50%',
+        top: '60%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
@@ -240,7 +240,6 @@ class AddSubject extends Component {
                     {this.renderButton()}
                 </div>
                 <div style={{ float: 'right', marginTop: '20vh', zIndex: '-1' }}>
-
                     {this.renderClass()}
                 </div>
                 {this.renderModalAdd()}

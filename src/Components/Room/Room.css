@@ -2,9 +2,13 @@
     background-color: #CCFFCC;
     border-radius : 12px;
 }
+#frameSubject {
+    background-color: #CCFFCC;;
+}
 
 #frameSubject :hover {
     border-radius:  12px;
+  
 }
 
 #course-room {
