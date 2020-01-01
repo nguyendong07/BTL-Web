@@ -6,10 +6,10 @@ import { RegisterContext } from '../Context/RegisterContext';
 // import Pdf from 'react-to-pdf';
 export default function () {
   const { register } = useContext(RegisterContext);
-  const options = {
-    orientation:'landscape',
-    
-  }
+  /* const options = {
+    orientation: 'landscape',
+
+  } */
   const printElement = React.createRef();
   return (
     <div id="container-result-register">

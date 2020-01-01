@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
-import { URL_GET_ALLCOURSES } from '../../Config/Api';
+import { URL_GET_ALLCOURSES,URL_ADD_COURSES } from '../../Config/Api';
 import { Label,Input, Button } from 'reactstrap';
 import Modal from 'react-modal';
 
@@ -39,9 +39,13 @@ class ClassList extends Component {
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
         this.handleChange = this.handleChange.bind(this)
+        this.getAllCourses=this.getAllCourses.bind(this);
 
     }
     componentDidMount() {
+       this.getAllCourses();
+    }
+    getAllCourses(){
         Axios.get(URL_GET_ALLCOURSES).then(rs => {
             // console.log(rs.data);
             // setCourseInfor(rs.data)
@@ -88,7 +92,18 @@ class ClassList extends Component {
     }
 
     Add = () => {
-        { this.closeModalAdd() }
+        //console.log(this.state);
+        const formData = new FormData();
+        formData.append('courseID', this.state.courseID);
+        formData.append('courseName', this.state.courseName);
+        formData.append('courseChar', this.state.courseChar);
+        formData.append('token', localStorage.getItem('token'));
+        Axios.post(URL_ADD_COURSES, formData).then(rs => {
+            //console.log(rs.data )
+            this.getAllCourses();
+             this.closeModalAdd();
+        })
+       // { this.closeModalAdd() }
     }
     openModalAdd() {
         this.setState({ modalIsOpenAdd: true });
