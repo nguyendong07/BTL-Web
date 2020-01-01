@@ -16,14 +16,15 @@ export default function () {
       setSchedule(rs.data);
     })
   }
-
   return (
     <React.Fragment>
       <HeaderElement></HeaderElement>
-      <div id="container-listschedule">
+      <div id="container-listschedule" 
+      style={{ float: "left"}}>
         <MenuTeacher></MenuTeacher>
+        </div>
         <div id="frame-listschedule"
-          style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
+          style={{ float:'right',marginTop:"20vh" }}
         >
           {schedule.map(item => {
             const url = `/Teacher/Schedule/${item.scheduleID}`
@@ -40,7 +41,6 @@ export default function () {
             )
           })}
         </div>
-      </div>
     </React.Fragment>
   )
 }

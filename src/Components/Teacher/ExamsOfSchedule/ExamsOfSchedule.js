@@ -21,10 +21,13 @@ export default function (props) {
   return (
     <React.Fragment>
       <HeaderElement></HeaderElement>
-      <div id="container-examsofschedule">
+      <div id="container-examsofschedule"
+        style={{ float: "left" }}>
+        >
         <MenuTeacher></MenuTeacher>
+        </div>
         <div id="frame-examsofshedule"
-          style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
+          style={{ float: 'right', marginTop: "20vh" }}
         >
           {exams.map(item => {
             return (
@@ -36,7 +39,6 @@ export default function (props) {
             )
           })}
         </div>
-      </div>
     </React.Fragment>
   )
 }
