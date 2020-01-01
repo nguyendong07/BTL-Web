@@ -14,7 +14,7 @@ export default function (){
         Axios.get(url).then(rs=>{
             setRoomInfo(rs.data)
         })
-    },[])
+    },[]);
         //console.log(roomInfo)
         return (
         <div>
