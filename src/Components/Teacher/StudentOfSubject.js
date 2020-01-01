@@ -95,7 +95,6 @@ class AddSubject extends Component {
         formData.append('studentName', this.state.studentName);
         formData.append('token', localStorage.getItem('token'));
         Axios.post(URL_ADD_STUDENT, formData).then(rs => {
-            console.log(rs.data);
             this.getStudentOfSubject();
              this.closeModalAdd();
         })
