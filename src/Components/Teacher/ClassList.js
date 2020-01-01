@@ -256,7 +256,7 @@ class ClassList extends Component {
         return (
             <div>
                 <HeaderElement />
-                <div style={{ float: 'left' }}>
+                <div>
                     <MenuTeacher />
                 </div>
                 <div style={{ position: "fixed", top: "20vh", left: "18vw", height: "5vh", zIndex: "1", width: "80vw", backgroundColor: "white" }}>
@@ -275,6 +275,4 @@ class ClassList extends Component {
     }
 
 }
-
-
 export default ClassList
