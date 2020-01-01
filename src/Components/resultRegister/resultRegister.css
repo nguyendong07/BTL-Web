@@ -5,10 +5,10 @@
 #result-register {
     width: 74vw;
     height: 70vh;
-    left: 20vw;
+    left: 18vw;
     border-radius: 12px;
     position: fixed;
-    top : 19vh;
+    top : 18vh;
 }
 
 #table-result-register {
@@ -57,4 +57,7 @@ p {
 
 #buttonPDF {
     z-index: 1;
+    position: fixed;
+    left: 40vw;
+    top: 80vh;
 }

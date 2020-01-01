@@ -8,7 +8,7 @@ class Notification extends Component {
             <div>
                 <HeaderElement></HeaderElement>
                 <div className="flex-container">
-                    <div style={{ float: 'left' }}>
+                    <div >
                         <Menu></Menu>
                     </div>
                     <div id="content-notification" >
