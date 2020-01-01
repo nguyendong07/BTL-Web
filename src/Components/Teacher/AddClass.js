@@ -6,7 +6,7 @@ import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
-import {URL_GET_ALLCOURSES} from '../../Config/Api';
+import { URL_GET_ALLCOURSES } from '../../Config/Api';
 const customStyles = {
     content: {
         top: '50%',
@@ -17,6 +17,8 @@ const customStyles = {
         transform: 'translate(-50%, -50%)'
     }
 };
+
+
 class AddClass extends Component {
 
     constructor() {
@@ -32,11 +34,11 @@ class AddClass extends Component {
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
     }
-    componentDidMount(){
-        Axios.get(URL_GET_ALLCOURSES).then(rs=>{
+    componentDidMount() {
+        Axios.get(URL_GET_ALLCOURSES).then(rs => {
             //console.log(rs.data);
             this.setState({
-                courseInfor:rs.data
+                courseInfor: rs.data
             })
         })
     }
@@ -56,12 +58,12 @@ class AddClass extends Component {
                 >
                     Thêm lớp
                 </Button>
-                <Button id="btn2"
+                {/*  <Button id="btn2"
                     style={{ textDecoration: 'none', color: 'white' }}
                     onClick={this.openModalDel}
                 >
                     Xóa lớp
-                </Button>
+                </Button> */}
             </div>
         )
     }
@@ -192,10 +194,10 @@ class AddClass extends Component {
                 <div
                     style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
                 >
-                    {this.renderButton()}
-                    {this.renderModalAdd()}
+                    {/*  {this.renderButton()}
+                    {this.renderModalAdd()} */}
                     {this.renderClass()}
-                    {this.renderModalDel()}
+                    {/* {this.renderModalDel()} */}
                 </div>
             </>
         );

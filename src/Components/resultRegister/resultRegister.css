@@ -1,11 +1,18 @@
+#frame-result-register {
+    display: flex;
+}
+
 #result-register {
     width: 70vw;
-    height: 60vh;
-    margin-left: 10vw;
-    margin-top: 5vh;
-    float: right;
+    height: 70vh;
+    margin-top: 8vh;
     border: 1px solid black;
-    margin-right: 3vw;
+    margin-left: 5vw;
+    border-radius: 12px;
+}
+
+#table-result-register {
+    margin: 12vw;
 }
 
 h3 {
@@ -14,4 +21,17 @@ h3 {
 
 #flex-container1 {
     display: flex;
+}
+
+table {
+    align-content: center;
+}
+td {
+    width: 230px;
+    height: 40px;
+    align-content: center;
+}
+
+#mamon {
+    width: 60px;
 }

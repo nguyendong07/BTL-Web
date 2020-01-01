@@ -12,9 +12,7 @@ export function RegisterProvider(props){
       const url = `${URL_GET_REGISTER_BY_STUDENTID}/${studentID}`;
       Axios.get(url).then(rs=>{
         setRegister(rs.data);
-      })
-    
-    
+      })   
   }
   return(
     <RegisterContext.Provider value={{register,getRegister:getRegisterByStudentID}}>

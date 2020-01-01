@@ -4,6 +4,7 @@
     border-radius : 1px;
     width: 100vw;
     box-shadow: gainsboro 0.1em 0.05em;
+    position: fixed;
 }
 
 #header-text {

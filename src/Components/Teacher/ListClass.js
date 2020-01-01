@@ -18,7 +18,7 @@ class ListClass extends Component {
     render() {
         return (
             <div id="listsubject"
-                style={{ marginLeft: "230px", position: "fixed", top: "115px" }}
+                style={{ marginLeft: "230px", position: "fixed"}}
                 >
                      <div id="frame">
                 {this.state.courseInfor.map(course => {

@@ -18,7 +18,8 @@ export function Room(props) {
             formData.append('courseID',courseInfo.courseID)
             formData.append('token',localStorage.getItem('token'))
             Axios.post(URL_REGISTER_EXAMS,formData).then(rs=>{
-                console.log(rs);
+                //console.log(rs);
+                alert(rs.data.sqlMessage)
                 getRegister();
             })
         }
