@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './ListClass.css'
+
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
@@ -49,17 +49,25 @@ class AddClass extends Component {
                     style={{
                         textDecoration: 'none', color: 'white',
                         width: 180,
-                        marginTop: 120,
                         left: 260,
                         position: 'fixed',
                         backgroundColor: 'brown',
+                        marginTop:-50,
                     }}
                     onClick={this.openModalAdd}
                 >
                     Thêm lớp
                 </Button>
-                {/*  <Button id="btn2"
-                    style={{ textDecoration: 'none', color: 'white' }}
+                <Button
+                    style={{
+                        textDecoration: 'none',
+                        color: 'white',
+                        width: 180,
+                        left: 560,
+                        position: 'fixed',
+                        backgroundColor: 'brown',
+                        marginTop:-50,
+                    }}
                     onClick={this.openModalDel}
                 >
                     Xóa lớp
@@ -166,6 +174,7 @@ class AddClass extends Component {
 
     renderClass() {
         return (
+       
             <div id="frame">
                 {this.state.courseInfor.map(course => {
                     const url = `/Teacher/StudentOfSubject/${course.courseID}/${course.courseChar}`;
