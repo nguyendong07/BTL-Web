@@ -97,7 +97,7 @@ class AddSubject extends Component {
         Axios.post(URL_ADD_STUDENT, formData).then(rs => {
             console.log(rs.data);
             this.getStudentOfSubject();
-             this.closeModalAdd();
+            this.closeModalAdd();
         })
     }
     openModalAdd() {
@@ -223,6 +223,17 @@ class AddSubject extends Component {
                                 >
                                     Mã môn học: {course.courseChar}
                                 </div>
+                                <button
+                                    style={{
+                                        backgroundColor: 'red',
+                                        float: 'right',
+                                        marginTop: -80,
+                                        borderRadius: 10
+                                    }}
+                                    
+                                >
+                                        Xóa sinh viên
+                                    </button>
                             </div>
 
                         )

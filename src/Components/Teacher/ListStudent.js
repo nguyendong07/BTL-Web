@@ -173,10 +173,10 @@ class ListStudent extends Component {
                 <div
                     style = {{float : 'right'}}
                 >
-                    {/* {this.renderButton()} */}
+                    {this.renderButton()}
                     {this.renderClass()}
-                    {/* {this.renderModalAdd()} */}
-                    {/* {this.renderModalDel()} */}
+                    {this.renderModalAdd()}
+                    {this.renderModalDel()}
                 </div>
             </>
         );
