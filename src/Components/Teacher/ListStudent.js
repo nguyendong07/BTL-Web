@@ -66,7 +66,7 @@ class ListStudent extends Component {
 
     renderClass() {
         return (
-            <div id="frame-liststudent">
+            <div id="frame-liststudent" style = {{marginTop : "20vh"}}>
                 {this.state.studentsInfo.map(student => {
                     return (
                         // <div style={{ textDecoration: 'none' }}>
@@ -166,9 +166,12 @@ class ListStudent extends Component {
         return (
             <>
                 <HeaderElement></HeaderElement>
+                <div style =  {{float: 'left'}}>
                 <MenuTeacher></MenuTeacher>
+                </div>
+
                 <div
-                    style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
+                    style = {{float : 'right'}}
                 >
                     {/* {this.renderButton()} */}
                     {this.renderClass()}
