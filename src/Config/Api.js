@@ -12,3 +12,5 @@ export const URL_REGISTER_EXAMS = `${ROOT_API}/registerRoom`;
 export const URL_GET_REGISTER_BY_STUDENTID =`${ROOT_API}/getRegisterExam`;
 export const URL_ADD_STUDENT =`${ROOT_API}/createStudent`;
 export const URL_ADD_COURSES =`${ROOT_API}/createCourse`;
+export const URL_DEL_SOC =`${ROOT_API}/deleteStudentCourse`;
+export const URL_ADD_SOC  =`${ROOT_API}/addStudentExcel`;

@@ -3,7 +3,7 @@ import Menu from '../Menu/Menu';
 import HeaderElement from '../Header/HeaderElement';
 import '../resultRegister/resultRegister.css';
 import { RegisterContext } from '../Context/RegisterContext';
-/* import Pdf from 'react-to-pdf'; */
+// import Pdf from 'react-to-pdf';
 export default function () {
   const { register } = useContext(RegisterContext);
   /* const options = {
@@ -53,7 +53,7 @@ export default function () {
           </div>
         </div>
       </div>
-      {/*       <Pdf targetRef={printElement} filename={"ketquadangky.pdf"} options={options}>
+      {/* <Pdf targetRef={printElement} filename={"ketquadangky.pdf"} options={options}>
         {({toPdf})=><button id="buttonPDF" onClick={toPdf}>convert to PDF</button>}
       </Pdf> */}
     </div>

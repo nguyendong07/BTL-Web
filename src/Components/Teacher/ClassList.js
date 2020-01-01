@@ -99,7 +99,7 @@ class ClassList extends Component {
         formData.append('courseChar', this.state.courseChar);
         formData.append('token', localStorage.getItem('token'));
         Axios.post(URL_ADD_COURSES, formData).then(rs => {
-            console.log(rs.data )
+            //console.log(rs.data )
             this.getAllCourses();
              this.closeModalAdd();
         })

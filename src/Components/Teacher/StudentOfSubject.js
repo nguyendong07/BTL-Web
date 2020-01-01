@@ -4,7 +4,7 @@ import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Label, Input, Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
-import { URL_GET_Students_OF_SUBJECT, URL_ADD_STUDENT } from '../../Config/Api';
+import { URL_GET_Students_OF_SUBJECT,URL_DEL_SOC,URL_ADD_SOC} from '../../Config/Api';
 
 const customStyles = {
     content: {
@@ -27,6 +27,7 @@ class AddSubject extends Component {
             studentID: '',
             classStudent: '',
             studentName: '',
+            file:'',
         }
         this.openModalAdd = this.openModalAdd.bind(this);
         this.closeModalAdd = this.closeModalAdd.bind(this);
@@ -34,12 +35,23 @@ class AddSubject extends Component {
         this.closeModalDel = this.closeModalDel.bind(this);
         this.getStudentOfSubject = this.getStudentOfSubject.bind(this);
         this.handleChange = this.handleChange.bind(this)
-
+        this.deleteStudent= this.deleteStudent.bind(this)
     }
     componentDidMount() {
         this.getStudentOfSubject();
     }
-
+    deleteStudent(course){
+        return ()=>{
+            const formData = new FormData();
+            formData.append('studentID',course.studentID);
+            formData.append('courseID',course.courseID);
+            formData.append('courseChar',course.courseChar);
+            Axios.post(URL_DEL_SOC,formData).then(rs=>{ 
+               // console.log(rs.data);
+                this.getStudentOfSubject();
+            })
+        }
+    }
     handleChange(e) {
         // e.preventDefault();
         this.setState({ [e.target.name]: e.target.value })
@@ -90,13 +102,12 @@ class AddSubject extends Component {
 
     Add = () => {
         const formData = new FormData();
-        formData.append('studentID', this.state.studentID);
-        formData.append('classStudent', this.state.classStudent);
-        formData.append('studentName', this.state.studentName);
-        formData.append('token', localStorage.getItem('token'));
-        Axios.post(URL_ADD_STUDENT, formData).then(rs => {
+        formData.append('add', this.state.file);
+        
+        Axios.post(URL_ADD_SOC, formData).then(rs => {
+            console.log(rs.data);
             this.getStudentOfSubject();
-             this.closeModalAdd();
+            this.closeModalAdd();
         })
     }
     openModalAdd() {
@@ -121,29 +132,9 @@ class AddSubject extends Component {
                     <div >
                         <Label htmlFor="studentName">
                             Sinh viên: </Label>
-                        <Input type="text"
-                            name="studentName"
-                            onChange={this.handleChange}
-                            style={{ float: 'right', marginLeft: 10 }}
-                        />
-                    </div>
-                    <div style={{ clear: 'both' }}></div>
-                    <div >
-                        <Label htmlFor="studentID">
-                            Mã sinh viên: </Label>
-                        <Input type="text"
-                            name="studentID"
-                            onChange={this.handleChange}
-                            style={{ float: 'right', marginLeft: 10 }}
-                        />
-                    </div>
-                    <div style={{ clear: 'both' }}></div>
-                    <div >
-                        <Label htmlFor="classStudent">
-                            Lớp số: </Label>
-                        <Input type="text"
-                            name="classStudent"
-                            onChange={this.handleChange}
+                        <Input type="file"
+                            name="add"
+                            onChange={(e)=>{this.setState({file:e.target.files[0]})}}
                             style={{ float: 'right', marginLeft: 10 }}
                         />
                     </div>
@@ -222,6 +213,17 @@ class AddSubject extends Component {
                                 >
                                     Mã môn học: {course.courseChar}
                                 </div>
+                                <button
+                                    style={{
+                                        backgroundColor: 'red',
+                                        float: 'right',
+                                        marginTop: -80,
+                                        borderRadius: 10
+                                    }}
+                                  onClick={this.deleteStudent(course)}  
+                                >
+                                        Xóa sinh viên
+                                    </button>
                             </div>
 
                         )
