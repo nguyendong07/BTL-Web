@@ -15,6 +15,7 @@ import AddClass from './Components/Teacher/AddClass'
 import StudentsOfSubject from './Components/Teacher/StudentOfSubject';
 import ListScheduleExams from './Components/Teacher/Schedule/ListScheduleExams';
 import { SubjectProvider } from './Components/Context/SubjectContext';
+import {RegisterProvider} from './Components/Context/RegisterContext';
 import ExamsOfSchedule from './Components/Teacher/ExamsOfSchedule/ExamsOfSchedule'
 function App() {
   return <Brt>
@@ -22,14 +23,14 @@ function App() {
         <Route exact path="/" component={LoginForm}></Route>
     <SubjectProvider>
         <Route exact path="/Student" component={Student} />
-        <Route exact path="/Resigter" component={Resigter} />
         <Route exact path="/Information" component={Information} />
-        <Route exact path="/resultRegister" component={resultRegister}></Route>
+          <Route exact path="/Resigter" component={Resigter} />
+          <Route exact path="/resultRegister" component={resultRegister}></Route>
+          <Route exact path="/GroupClass/:courseChar" component={GroupClass}></Route>
         <Route exact path="/Notification" component={Notification}></Route>
         <Route exact path="/Teacher" component={Teacher}></Route>
         <Route exact path="/Teacher/SubjectScreen" component={SubjectScreen}></Route>
         <Route exact path="/Teacher/ListSubject" component={ListSubject}></Route>
-        <Route exact path="/GroupClass/:courseChar" component={GroupClass}></Route>
         <Route exact path="/Teacher/ListStudent" component={ListStudent}></Route>
         <Route exact path="/Teacher/AddClass" component={AddClass}></Route>
         <Route exact path="/Teacher/StudentOfSubject/:courseID/:courseChar" component={StudentsOfSubject}></Route>

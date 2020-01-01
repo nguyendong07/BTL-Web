@@ -1,11 +1,13 @@
-import React,{useState} from 'react'
+import React, { useContext } from 'react'
 import '../Room/Room.css'
 import Axios from 'axios';
 import {URL_REGISTER_EXAMS} from '../../Config/Api';
+import {RegisterContext} from '../Context/RegisterContext';
 //import {SubjectContext} from '../Context/SubjectContext'
 export function Room(props) {
-    const {roomInfo} = props
-    console.log(roomInfo);
+    const {roomInfo} = props;
+    const {getRegister} = useContext(RegisterContext);
+    //console.log(roomInfo);
     function handleRegister(courseInfo){
         return ()=>{
             const formData = new FormData();
@@ -17,6 +19,7 @@ export function Room(props) {
             formData.append('token',localStorage.getItem('token'))
             Axios.post(URL_REGISTER_EXAMS,formData).then(rs=>{
                 console.log(rs);
+                getRegister();
             })
         }
     }
