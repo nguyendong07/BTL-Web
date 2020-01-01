@@ -14,7 +14,7 @@ export function Room(props) {
             formData.append('courseName',courseInfo.courseName)
             formData.append('scheduleID',courseInfo.scheduleID)
             formData.append('courseID',courseInfo.courseID)
-            formData.append('token',courseInfo.token)
+            formData.append('token',localStorage.getItem('token'))
             Axios.post(URL_REGISTER_EXAMS,formData).then(rs=>{
                 console.log(rs);
             })

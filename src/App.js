@@ -18,9 +18,9 @@ import { SubjectProvider } from './Components/Context/SubjectContext';
 import ExamsOfSchedule from './Components/Teacher/ExamsOfSchedule/ExamsOfSchedule'
 function App() {
   return <Brt>
-    <SubjectProvider>
       <Switch>
         <Route exact path="/" component={LoginForm}></Route>
+    <SubjectProvider>
         <Route exact path="/Student" component={Student} />
         <Route exact path="/Resigter" component={Resigter} />
         <Route exact path="/Information" component={Information} />
@@ -35,8 +35,8 @@ function App() {
         <Route exact path="/Teacher/StudentOfSubject/:courseID/:courseChar" component={StudentsOfSubject}></Route>
         <Route exact path="/Teacher/Schedule" component={ListScheduleExams} />
         <Route exact path="/Teacher/Schedule/:scheduleID" component={ExamsOfSchedule} />
-      </Switch>
     </SubjectProvider>
+      </Switch>
   </Brt>
 }
 export default App
