@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './FrameInformation.css'
+import './FrameInformation.css';
+import {URL_GET_STUDENT_INFO} from '../../../Config/Api';
+import Axios from 'axios'
 class FrameInformation extends Component {
     constructor() {
         super()
@@ -9,6 +11,19 @@ class FrameInformation extends Component {
             class : '',
             email : ''
         }
+    }
+    componentDidMount(){
+        const studentID = localStorage.getItem('userName');
+        const url =`${URL_GET_STUDENT_INFO}/${studentID}`;      
+        Axios.get(url).then(rs=>{
+            console.log(rs.data[0])
+            this.setState({
+                name: rs.data[0].studentName,
+                id: rs.data[0].studentID,
+                email:rs.data[0].email,
+                class: rs.data[0].classStudent
+            })
+        })
     }
     render() {
         return (

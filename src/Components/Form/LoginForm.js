@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Label, FormGroup, Input, Button } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
+import {URL_LOGIN} from '../../Config/Api'
 import './LoginForm.css'
 import axios from 'axios'
 class LoginForm extends Component {
@@ -9,7 +10,7 @@ class LoginForm extends Component {
     this.state = {
       username: '',
       password: '',
-      isLoged: false,
+      isLoged: localStorage.getItem('token')!==null,
       code: '0'
     }
     this.handleLogin = this.handleLogin.bind(this)
@@ -20,18 +21,19 @@ class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
   handleLogin() {
-    const host = 'http://192.168.1.103:4000/'
+    const host = URL_LOGIN;
 
     axios.post(host, {
       userName: this.state.username,
       passWord: this.state.password
     }) 
       .then((res) => {
+        //console.log(res)
         if (res.statusText === 'OK') {
           localStorage.setItem('userName', res.data.userName)
           localStorage.setItem('token', res.data.token)
           this.setState({
-            isLoged: true,
+            isLoged: localStorage.getItem('token')!=='',
             userName: localStorage.getItem('userName')
           })
         }
@@ -39,10 +41,11 @@ class LoginForm extends Component {
   }
 
   render() {
-    if (this.state.isLoged === true && this.state.userName !== 'admin') {
-      return <Redirect to='/Admin'></Redirect>
+   // console.log(this.state.isLoged)
+    if (this.state.isLoged === true && localStorage.getItem('userName') !== 'admin') {
+      return <Redirect to='/Student'></Redirect>
     }
-    else if (this.state.isLoged === true && this.state.userName ==='admin') {
+    else if (this.state.isLoged === true && localStorage.getItem('userName') ==='admin') {
       return <Redirect to='/Teacher'> </Redirect>
     }
     else {

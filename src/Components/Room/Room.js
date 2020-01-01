@@ -1,37 +1,39 @@
 import React, { useState } from 'react'
 import '../Room/Room.css'
-import axios from 'axios'
-
-export function Room() {
-    const [roomInfor, setRoomInfor] = useState([])
-
-    const host = 'http://localhost:4000/'
-    let getToken = localStorage.getItem('token')
-
-        axios.get(host + 'getRoomInfo/trr', {
-            headers: {
-                Authorization: 'Bearer ' + getToken
-            }
-        })
-            .then((res) => {
-                setRoomInfor(res.data)
+import Axios from 'axios';
+import {URL_REGISTER_EXAMS} from '../../Config/Api';
+import {RegisterContext} from '../Context/RegisterContext';
+//import {SubjectContext} from '../Context/SubjectContext'
+export function Room(props) {
+    const {roomInfo} = props;
+    const {getRegister} = useContext(RegisterContext);
+    //console.log(roomInfo);
+    function handleRegister(courseInfo){
+        return ()=>{
+            const formData = new FormData();
+            formData.append('examID',courseInfo.examID);
+            formData.append('room',courseInfo.room);
+            formData.append('courseName',courseInfo.courseName)
+            formData.append('scheduleID',courseInfo.scheduleID)
+            formData.append('courseID',courseInfo.courseID)
+            formData.append('token',localStorage.getItem('token'))
+            Axios.post(URL_REGISTER_EXAMS,formData).then(rs=>{
+                console.log(rs);
+                getRegister();
             })
-
-    if(roomInfor.length === 0){
-        return(<div></div>)
-    }else
+        }
+    }
     return (
         <div id="frame-room">
-            {roomInfor.map(( course, index ) => {
+            {roomInfo.map(course => {
                 return (
-                    <div id="frameSubject" >
+                    <div id="frameSubject" onClick={handleRegister(course)}>
                         <div style={{ float: "left" }}>
-                            <pre style={{ fontSize: "20px", margin: "5px" }}>Phòng : {course.maphongthi}</pre>
-                            <pre style={{ marginLeft: "15px" }}>Số máy : {course.soluong}/50 </pre>
+                            <pre style={{ fontSize: "20px", margin: "5px" }}>Phòng : {course.room}</pre>
+                            <pre style={{ marginLeft: "15px" }}>Số máy : {course.slot}/{course.totalSlot} </pre>
                         </div>
                         <div style={{ float: "right" }}>
-                            <p style={{ float: "right", fontSize: "18px", marginRight: "20px" }}>Thời gian {course.thoigian}</p><br></br>
-                            <p style={{ float: "right", fontSize: "18px", marginRight: "20px" }}>{course.ngay}</p>
+                            <p style={{ float: "right", fontSize: "18px", marginRight: "20px" }}>Thời gian {course.startTime}-{course.endTime} Ngày {course.dateTime.slice(0,course.dateTime.indexOf('T'))}  </p>
                         </div>
                     </div>
                 )
@@ -39,5 +41,4 @@ export function Room() {
         </div>
     )
 }
-
 export default Room

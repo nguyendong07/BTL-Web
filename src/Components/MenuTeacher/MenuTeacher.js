@@ -5,32 +5,38 @@ import { Link } from 'react-router-dom';
 class MenuTeacher extends Component {
     render() {
         return (
-            <div id="body">
-                <div id="areahead">
-                    <p>
-                        <Link to="/Teacher"
+            <div id="body-menu-teacher">
+                 <Link to="/Teacher/ListStudent"
                             style={{
                                 textDecoration: 'none',
                                 color: "black",
-                                fontSize: '16px',
-                                fontWeight: 'bold',
                             }}>
-                            QUẢN LÝ SINH VIÊN
-                        </Link>
+                <div id="areahead-teacher">
+                    <p>
+                            Quản lý sinh viên
+                       
                     </p> </div>
-                <div id="area" >
-                    <p>
-                        <Link to="/Teacher/AddClass"
+                    </Link>
+                    <Link to="/Teacher/AddClass"
+                            style={{
+                                textDecoration: 'none',
+                                color: "black"}}>
+                            <div id="area-teacher" >
+                       <p style = {{display : 'flex'}}>
+                            Quản lý môn thi </p>
+                </div >
+                </Link>
+                <Link to="/Teacher/Schedule"
                             style={{
                                 textDecoration: 'none',
                                 color: "black",
-                                fontSize: '16px',
-                                fontWeight: 'bold',
                             }}>
-                            QUẢN LÝ MÔN THI
-                            </Link>
+                <div id="area-teacher" >
+                    <p>
+                             Quản lý ca thi      
                     </p>
                 </div >
+                </Link>
             </div >
 
         );

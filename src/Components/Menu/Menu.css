@@ -1,4 +1,5 @@
 #body-menu {
+    
     background-color :	#FFF5EE;
     width : 220px;
     margin-top : 5vh;
@@ -24,12 +25,14 @@ p {
 #area1 :hover {
     background-color:grey;
     color: white;
-    font-family: Comic Sans, Comic Sans MS, cursive;
+    /* font-family: Comic Sans, Comic Sans MS, cursive; */
+    font-family: LP Allema;
 }
 #areahead1 {
     width: 220px; 
     height: 50px;
-    font-family: Comic Sans, Comic Sans MS, cursive;
+    /* font-family: Comic Sans, Comic Sans MS, cursive; */
+    font-family: LP Allema;
 }
 #areahead1 :hover {
    width: 220px;

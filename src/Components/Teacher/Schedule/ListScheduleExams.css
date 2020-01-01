@@ -1,0 +1,22 @@
+#frame-listschedule {
+  margin-left: 4vw;
+  margin-top: 2vh;
+}
+
+#frame-listschedule :hover {
+  background-color: azure;
+  border-radius: 13px;
+}
+#frameSchedule {
+  height : auto;
+  width : 70vw;
+  border : 1px solid black;
+  margin : 30px;
+  border-radius : 13px;
+  color: black;
+  font-size: 8px;
+}
+
+#container-listschedule {
+  display: flex;
+}

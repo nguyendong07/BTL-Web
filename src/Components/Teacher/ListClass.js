@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './ListClass.css'
+
 class ListClass extends Component {
 
     constructor() {
@@ -12,10 +13,14 @@ class ListClass extends Component {
             ]
         }
     }
+    
 
-    renderClass() {
+    render() {
         return (
-            <div id="frame">
+            <div id="listsubject"
+                style={{ marginLeft: "230px", position: "fixed", top: "115px" }}
+                >
+                     <div id="frame">
                 {this.state.courseInfor.map(course => {
                     return (
                          <Link to="/Teacher/ListSubject" style={{ textDecoration: 'none' }}>
@@ -31,15 +36,6 @@ class ListClass extends Component {
                     )
                 })}
             </div>
-        )
-    }
-
-    render() {
-        return (
-            <div id="listsubject"
-                style={{ marginLeft: "230px", position: "fixed", top: "115px" }}
-                >
-                {this.renderClass()}
             </div>
         );
     }

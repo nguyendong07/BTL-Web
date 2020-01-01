@@ -1,0 +1,12 @@
+export const ROOT_API = `http://192.168.1.103:4000`;
+export const URL_LOGIN = `${ROOT_API}/`;
+export const URL_GET_SUBJECT =`${ROOT_API}/getListCourses`;
+export const URL_GET_STUDENT_INFO =`${ROOT_API}/getStudentID`;
+export const URL_GET_ROOM_INFO = `${ROOT_API}/getListRoom`;
+export const URL_GET_ALLCOURSES =`${ROOT_API}/getCourse`;
+export const URL_GET_ALL_STUDENTS =`${ROOT_API}/getAllStudent`;
+export const URL_GET_Students_OF_SUBJECT =`${ROOT_API}/getListStudent`;
+export const URL_GET_SCHEDULE = `${ROOT_API}/getSchedule`;
+export const URL_GET_EXAMS_OF_SCHEDULE =`${ROOT_API}/getExam`;
+export const URL_REGISTER_EXAMS = `${ROOT_API}/registerRoom`;
+export const URL_GET_REGISTER_BY_STUDENTID =`${ROOT_API}/getRegisterExam`;

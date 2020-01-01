@@ -16,8 +16,12 @@ class Teacher extends Component {
             return (
                 <div>       
                     <HeaderElement></HeaderElement>
-                     <MenuTeacher></MenuTeacher> 
-                     <ListClass></ListClass>
+                     <MenuTeacher></MenuTeacher>
+                     <div>
+                         <h1>
+                             Hướng dẫn quản lý sinh viên 
+                         </h1>
+                     </div> 
                 </div>
             );
         }
