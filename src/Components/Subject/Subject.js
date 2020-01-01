@@ -1,5 +1,4 @@
 import React, {useContext } from 'react'
-import axios from 'axios'
 import '../Subject/Subject.css'
 import { Link } from 'react-router-dom'
 import {SubjectContext} from '../Context/SubjectContext'
