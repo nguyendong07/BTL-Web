@@ -1,11 +1,12 @@
 #body-menu {
-    
     background-color :	#FFF5EE;
     width : 220px;
     margin-top : 5vh;
     border-top-right-radius : 12px;
     height: 80vh;
     box-shadow: gainsboro 0.1em 0.1em 0.1em 0.05em;
+    position: fixed;
+    margin-top: 20vh;
 }
 
 p {  

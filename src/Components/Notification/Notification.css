@@ -1,8 +1,9 @@
 #content-notification {
+    margin-top: 20vh;
     width: 70vw;
     height: 60vh;
     margin-left: 20vw;
-    padding-top: 5vh;
+    position: fixed;
 }
 
 h3 {

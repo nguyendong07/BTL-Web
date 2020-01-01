@@ -3,12 +3,13 @@
 }
 
 #result-register {
-    width: 70vw;
+    width: 74vw;
     height: 70vh;
-    margin-top: 8vh;
     border: 1px solid black;
-    margin-left: 5vw;
+    left: 20vw;
     border-radius: 12px;
+    position: fixed;
+    top : 22vh;
 }
 
 #table-result-register {
@@ -17,6 +18,8 @@
 
 h3 {
     color: red;
+    margin: 20px;
+
 }
 
 #flex-container1 {
@@ -25,13 +28,18 @@ h3 {
 
 table {
     align-content: center;
+    width: 60vw;
 }
 td {
-    width: 230px;
+    width: 10px;
     height: 40px;
     align-content: center;
 }
 
 #mamon {
     width: 60px;
+}
+
+p {
+    font-size:  12px;
 }

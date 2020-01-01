@@ -4,27 +4,6 @@ import HeaderElement from '../Header/HeaderElement';
 import '../resultRegister/resultRegister.css';
 import { RegisterContext } from '../Context/RegisterContext';
 export default function () {
-  // constructor(){
-  //   super()
-  //   this.state = {
-  //     name : '',
-  //     id : '',
-  //     class : '',
-  //     email : ''
-  //   }
-  // }
-  // componentDidMount() {
-  //   const url =`${URL_GET_STUDENT_INFO}/${studentID}`;      
-  //   Axios.get(url).then(rs=>{
-  //       console.log(rs.data[0])
-  //       this.setState({
-  //           name: rs.data[0].studentName,
-  //           id: rs.data[0].studentID,
-  //           email:rs.data[0].email,
-  //           class: rs.data[0].classStudent
-  //       })
-  //   })
-  // }
   const { register } = useContext(RegisterContext);
   console.log(register)
   return (
@@ -33,7 +12,18 @@ export default function () {
       <div id="frame-result-register">
         <Menu></Menu>
         <div id="result-register">
-           <div id = "table-result-register">
+        <h3>Danh sách các môn thi đã đăng kí thi</h3>   
+        {register.length>0 && 
+        <div>
+          <div style = {{float : 'left', marginLeft : "12px" }}>
+           <pre> Họ tên : {register[0].studentName}  </pre> 
+           <pre> Lớp : {register[0].classStudent} </pre> 
+          </div>
+           <div>
+           <pre>Mã sinh viên : {register[0].studentID}</pre>
+           </div>
+        </div>}
+           <div id = "table-result-register">    
            <table border = "1"> 
           <thead>
           <td> Mã môn  </td>
