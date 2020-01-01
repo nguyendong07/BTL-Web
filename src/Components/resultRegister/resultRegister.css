@@ -14,7 +14,7 @@
 #table-result-register {
     margin-right: 1vw;
     margin-left: 1.5vw ;
-    
+    width: 60%;
 }
 
 h3 {
@@ -53,4 +53,8 @@ p {
 #bcd {
     float: right;
     margin-right: 150px;
+}
+
+#buttonPDF {
+    z-index: 1;
 }

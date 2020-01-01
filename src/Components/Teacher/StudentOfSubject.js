@@ -4,7 +4,7 @@ import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Label, Input, Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
-import { URL_GET_Students_OF_SUBJECT } from '../../Config/Api';
+import { URL_GET_Students_OF_SUBJECT, URL_ADD_STUDENT } from '../../Config/Api';
 
 const customStyles = {
     content: {
@@ -14,7 +14,7 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        zIndex: '2'   
+        zIndex: '2'
     }
 };
 class AddSubject extends Component {
@@ -48,7 +48,7 @@ class AddSubject extends Component {
         const { courseID, courseChar } = this.props.match.params;
         const url = `${URL_GET_Students_OF_SUBJECT}/${courseID}/${courseChar}`;
         Axios.get(url).then(rs => {
-            console.log(rs.data);
+            //  console.log(rs.data);
             this.setState({
                 studentInfo: rs.data
             })
@@ -89,7 +89,16 @@ class AddSubject extends Component {
     }
 
     Add = () => {
-        { this.closeModalAdd() }
+        const formData = new FormData();
+        formData.append('studentID', this.state.studentID);
+        formData.append('classStudent', this.state.classStudent);
+        formData.append('studentName', this.state.studentName);
+        formData.append('token', localStorage.getItem('token'));
+        Axios.post(URL_ADD_STUDENT, formData).then(rs => {
+            console.log(rs.data);
+            this.getStudentOfSubject();
+             this.closeModalAdd();
+        })
     }
     openModalAdd() {
         this.setState({ modalIsOpenAdd: true });
@@ -230,6 +239,7 @@ class AddSubject extends Component {
 
     render() {
         //console.log(this.props.match.params);
+        //console.log(this.state);
         return (
             <div>
                 <HeaderElement />

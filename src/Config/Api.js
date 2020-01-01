@@ -10,3 +10,4 @@ export const URL_GET_SCHEDULE = `${ROOT_API}/getSchedule`;
 export const URL_GET_EXAMS_OF_SCHEDULE =`${ROOT_API}/getExam`;
 export const URL_REGISTER_EXAMS = `${ROOT_API}/registerRoom`;
 export const URL_GET_REGISTER_BY_STUDENTID =`${ROOT_API}/getRegisterExam`;
+export const URL_ADD_STUDENT =`${ROOT_API}/createStudent`;
