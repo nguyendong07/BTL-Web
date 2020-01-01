@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './ListClass.css'
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
 import { URL_GET_Students_OF_SUBJECT } from '../../Config/Api';
+
 const customStyles = {
     content: {
         top: '50%',
@@ -50,27 +50,25 @@ class AddSubject extends Component {
                     style={{
                         textDecoration: 'none', color: 'white',
                         width: 150,
-                        left: 260,
-                        position: 'fixed',
                         backgroundColor: 'brown',
                         marginTop: -50,
+                        marginLeft: 30
                     }}
                     onClick={this.openModalAdd}
                 >
-                    Thêm ca thi
+                    Thêm sinh viên
                 </Button>
                 <Button
                     style={{
                         textDecoration: 'none',
-                        color: 'white',
-                        left: 560,
-                        position: 'fixed',
+                        color: 'white', 
                         backgroundColor: 'brown',
                         marginTop: -50,
+                        marginLeft: 100
                     }}
                     onClick={this.openModalDel}
                 >
-                    Xóa ca thi
+                    Xóa sinh viên
                 </Button>
             </div>
         )
@@ -95,36 +93,19 @@ class AddSubject extends Component {
                     style={customStyles}
                 >
                     <div>
-                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Thêm ca thi </h2>
+                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Thêm sinh viên </h2>
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
                         <label name="class">
-                            Tên lớp: </label>
+                            Mã sinh viên: </label>
                         <input type="text" name="class"
                             style={{ float: 'right', marginLeft: 10 }} />
                     </div>
                     <div style={{ clear: 'both' }}></div>
-                    <div >
-                        <label name="class">
-                            Địa điểm: </label>
-                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
-                    </div>
                     <div style={{ clear: 'both' }}></div>
-                    <div >
-                        <label name="class">
-                            Thời gian: </label>
-                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
-                    </div>
-                    <div style={{ clear: 'both' }}></div>
-                    <div >
-                        <label name="class" style={{ marginBottom: 70 }}>
-                            Ngày: </label>
-                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
-                    </div>
-                    <div style={{ clear: 'both' }}></div>
-                    <div style={{ clear: 'both' }}></div>
-                    <button style={{ marginTop: 240 }}
+                    <button
+                        style={{ marginTop: 20, marginLeft: 120 }}
                         onClick={() => { this.Add() }}
                     >
                         Thêm
@@ -145,8 +126,6 @@ class AddSubject extends Component {
     closeModalDel() {
         this.setState({ modalIsOpenDel: false });
     }
-
-
     renderModalDel() {
         return (
             <div>
@@ -156,26 +135,18 @@ class AddSubject extends Component {
                     style={customStyles}
                 >
                     <div>
-                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Xóa ca thi </h2>
+                        <h2 style={{ marginLeft: 50, marginBottom: 50 }}>Xóa sinh viên </h2>
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
-                        <label name="class"
-
-                        >
-                            Tên lớp: </label>
-                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
+                        <label name="class">
+                            Mã sinh viên: </label>
+                        <input type="text" name="class"
+                            style={{ float: 'right', marginLeft: 10 }} />
                     </div>
                     <div style={{ clear: 'both' }}></div>
-                    <div >
-                        <label name="class"
-                            style={{ marginBottom: 100 }}
-                        >
-                            Phòng thi: </label>
-                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
-                    </div>
-                    <div style={{ clear: 'both' }}></div>
-                    <button style={{ marginTop: 200 }}
+                    <button
+                        style={{ marginTop: 20, marginLeft: 120 }}
                         onClick={() => { this.Del() }}
                     >
                         Xóa
@@ -187,21 +158,25 @@ class AddSubject extends Component {
 
     renderClass() {
         return (
-            <div id="frame">
+            <div style={{ marginTop: 50 }}>
+                {this.renderButton()}
                 {this.state.studentInfo.map(course => {
                     return (
-
                         <div id="frameSubject" style={{ textDecoration: 'none' }}>
-                            <div style={{ fontSize: 24, }}>
-                                <p>{course.className}</p>
-                            </div>
+                            <p>Họ và tên : {course.studentName}</p>
                             <div style={{ fontSize: 16, marginLeft: 15 }}>
-                                Họ và tên : {course.studentName}<br />
-                                MSSV: {course.studentID}
+                                MSSV: {course.studentID}<br />
+                                Lớp số: {course.courseID}<br />
                             </div>
-                            <div style={{ fontSize: 16, float: 'right', marginRight: 20, marginTop: -50, fontWeight: 600 }}>
-                                courseID: {course.courseID}<br />
-                                courseChar: {course.courseChar}
+                            <div
+                                style={{
+                                    fontSize: 16,
+                                    float: 'right',
+                                    marginRight: 20,
+                                    marginTop: -30
+                                }}
+                            >
+                                Mã môn học: {course.courseChar}
                             </div>
                         </div>
 
@@ -216,12 +191,15 @@ class AddSubject extends Component {
         return (
             <>
                 <HeaderElement></HeaderElement>
+                <div style={{ float: 'left' }}></div>
                 <MenuTeacher></MenuTeacher>
                 <div id="listsubject"
-                    style={{ marginLeft: "230px", position: "fixed", top: "200px" }}
+
                 >
-                    {this.renderButton()}
-                    {this.renderClass()}
+
+                    <div style={{ float: 'right', marginTop: '20vh' }}>
+                        {this.renderClass()}
+                    </div>
 
                     {this.renderModalAdd()}
                     {this.renderModalDel()}
