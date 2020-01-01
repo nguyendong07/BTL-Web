@@ -6,7 +6,7 @@ import FrameInformation from '../Information/FrameInformation/FrameInformation';
 class Information extends Component {
     render() {
         return (
-            <div style={{ width: "100vw", height: "100vh", backgroundColor: '#fcfcfc' }}>
+            <div style={{ width: "100vw", height: "100vh", backgroundColor: 'white' }}>
                 <HeaderElement></HeaderElement>
                 <div >
                     <Menu></Menu>
