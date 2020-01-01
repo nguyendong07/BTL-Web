@@ -5,6 +5,7 @@ import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import Axios from 'axios';
 import { URL_GET_ALL_STUDENTS } from '../../Config/Api';
+import { Button } from 'reactstrap'
 const customStyles = {
     content: {
         top: '50%',
@@ -39,36 +40,36 @@ class ListStudent extends Component {
     }
     renderButton() {
         return (
-            <div id="frame-button-listsst">
-                <button 
-                    style={{ 
+            <>
+                <Button
+                    style={{
                         textDecoration: 'none', color: 'white',
                         width: 150,
                         backgroundColor: 'brown',
                         marginTop: 0,
-                        left: "25vw",
-                        borderRadius : "8px",
+                        marginLeft: 30,
                         position: "fixed",
-                     }}
+                        zIndex: '1'
+                    }}
                     onClick={this.openModalAdd}
                 >
                     Thêm sinh viên
-                </button>
-                <button 
-                    style={{ 
-                        textDecoration: 'none', color: 'white',
-                        width: 150,
-                        backgroundColor: 'brown',
-                        marginTop: 0,
-                        left: "60vw" ,
-                        position: "fixed",
-                        borderRadius : "8px"
-                     }}
-                    onClick={this.openModalDel}
-                >
-                    Xóa sinh viên
-                </button>
-            </div>
+        </Button>
+            {/* <Button
+                style={{
+                    textDecoration: 'none',
+                    color: 'white',
+                    backgroundColor: 'brown',
+                    marginTop: 0,
+                    marginLeft: 400,
+                    position: "fixed",
+                    zIndex: '1'
+                }}
+                onClick={this.openModalDel}
+            >
+                Xóa sinh viên
+            </Button> */}
+            </>
         )
     }
 
@@ -82,7 +83,7 @@ class ListStudent extends Component {
 
     renderClass() {
         return (
-            <div id="frame-liststudent" style={{ marginTop: "20vh" }}>
+            <div id="frame-liststudent" style={{ marginTop: "10vh" }}>
                 {this.state.studentsInfo.map(student => {
                     return (
                         // <div style={{ textDecoration: 'none' }}>
@@ -181,27 +182,25 @@ class ListStudent extends Component {
     render() {
         return (
             <>
-             <div>
-                <HeaderElement />
-                <div style={{ float: 'left' }}>
-                    <MenuTeacher />
-                </div>
+                <div>
+                    <HeaderElement />
+                    <div style={{ float: 'left' }}>
+                        <MenuTeacher />
+                    </div>
 
-                <div
-                    style = {{float : 'right'}}
-                >
-                    {this.renderButton()}
-                    {this.renderClass()}
+                    <div style={{ position: "fixed", top: "20vh", left: "18vw", height: "5vh", zIndex: "1", width: "80vw", backgroundColor: "white" }}>
+                        {this.renderButton()}
+                    </div>
+                    <div style={{ float: 'right', marginTop: '20vh', zIndex: '-1' }}>
+                        {this.renderClass()}
+                    </div>
                     {this.renderModalAdd()}
-                    {this.renderModalDel()}
-                </div>
-                {this.renderModalAdd()}
-                {this.renderModalDel()}
-            </div >
-               
+                    {/* {this.renderModalDel()} */}
+                </div >
+
             </>
 
-           
+
         );
     }
 }

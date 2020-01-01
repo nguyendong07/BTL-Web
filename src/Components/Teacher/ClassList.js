@@ -69,7 +69,7 @@ class ClassList extends Component {
                 >
                     Thêm môn
         </Button>
-                <Button
+                {/* <Button
                     style={{
                         textDecoration: 'none',
                         color: 'white',
@@ -82,7 +82,7 @@ class ClassList extends Component {
                     onClick={this.openModalDel}
                 >
                     Xóa môn
-        </Button>
+        </Button> */}
             </>
         )
     }
@@ -253,7 +253,7 @@ class ClassList extends Component {
                 </div>
                 <div style = {{zIndex : "888", backgroundColor : 'white'    }}>
                 {this.renderModalAdd()}
-                {this.renderModalDel()}
+                {/* {this.renderModalDel()} */}
                 </div>
             </div >
         )

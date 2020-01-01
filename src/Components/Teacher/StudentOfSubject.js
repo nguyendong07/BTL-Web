@@ -70,7 +70,7 @@ class AddSubject extends Component {
                 >
                     Thêm sinh viên
         </Button>
-                <Button
+                {/* <Button
                     style={{
                         textDecoration: 'none',
                         color: 'white',
@@ -83,7 +83,7 @@ class AddSubject extends Component {
                     onClick={this.openModalDel}
                 >
                     Xóa sinh viên
-        </Button>
+        </Button> */}
             </>
         )
     }
@@ -264,7 +264,7 @@ class AddSubject extends Component {
                     {this.renderClass()}
                 </div>
                 {this.renderModalAdd()}
-                {this.renderModalDel()}
+                {/* {this.renderModalDel()} */}
             </div >
         );
     }
