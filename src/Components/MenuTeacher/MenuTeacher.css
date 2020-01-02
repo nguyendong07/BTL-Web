@@ -1,6 +1,6 @@
 #body-menu-teacher {
     background-color: #FFF5EE;
-    width: 16vw;
+    width: 15vw;
     height: 80vh;
     margin-top: 20vh;
     border-top-right-radius: 12px;
@@ -17,22 +17,22 @@ p {
 }
 
 #area-teacher {
-    width: 16vw;
+    width: 15vw;
     height: 50px;
 }
 
 #area-teacher :hover {
-    width: 16vw;
+    width: 15vw;
     background-color: grey;
     color: white;
     
 }
 #areahead-teacher {
-    width: 16vw;
+    width: 15vw;
     height: 50px; 
 }
 #areahead-teacher :hover {
-    width: 16vw;
+    width: 15vw;
     background-color: grey;
     color: white;
     border-top-right-radius: 12px;
