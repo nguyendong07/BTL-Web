@@ -1,6 +1,6 @@
 #body-menu {
     background-color :	#FFF5EE;
-    width : 220px;
+    width : 15vw;
     margin-top : 5vh;
     border-top-right-radius : 12px;
     height: 80vh;
@@ -18,7 +18,7 @@ p {
     
 }
 #area1 {   
-    width: 220px; 
+    width: 15vw; 
     height: 50px;
     font-family: Comic Sans, Comic Sans MS, cursive;
 }
@@ -26,17 +26,17 @@ p {
 #area1 :hover {
     background-color:grey;
     color: white;
-    /* font-family: Comic Sans, Comic Sans MS, cursive; */
-    font-family: LP Allema;
+    font-family: Comic Sans, Comic Sans MS, cursive;
+    
 }
 #areahead1 {
-    width: 220px; 
+    width: 15vw; 
     height: 50px;
-    /* font-family: Comic Sans, Comic Sans MS, cursive; */
-    font-family: LP Allema;
+    font-family: Comic Sans, Comic Sans MS, cursive;
+    
 }
 #areahead1 :hover {
-   width: 220px;
+   width: 15vw;
    background-color:grey;
    color: white;
    border-top-right-radius: 12px;

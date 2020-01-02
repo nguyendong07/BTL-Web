@@ -10,9 +10,9 @@
 #cointainer-information {
     display: flex  ;
     height : 70vh;
-    width : 68vw; 
+    width : 80vw; 
     top : 21vh;
-    left : 23vw;
+    left : 18vw;
     border-radius : 12px;
     background-color: #e6ffff;
     position :fixed;
