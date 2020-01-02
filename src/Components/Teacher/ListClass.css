@@ -8,8 +8,10 @@
 }
 #frameSubject {
     height: 100px;
+    width: 70vw;
     font-family: Arial, Helvetica, sans-serif;
     color: gray;
+    margin-right: 10vw;
 }
 p{
     margin-bottom: 0px;

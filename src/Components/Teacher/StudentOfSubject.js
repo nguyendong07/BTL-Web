@@ -4,8 +4,8 @@ import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import { Label, Input, Button } from 'reactstrap';
 import Modal from 'react-modal';
 import Axios from 'axios';
-import { URL_GET_Students_OF_SUBJECT,URL_DEL_SOC,URL_ADD_SOC} from '../../Config/Api';
-
+import { URL_GET_Students_OF_SUBJECT, URL_DEL_SOC, URL_ADD_SOC } from '../../Config/Api';
+import { MdDelete } from 'react-icons/md';
 const customStyles = {
     content: {
         top: '60%',
@@ -27,7 +27,7 @@ class AddSubject extends Component {
             studentID: '',
             classStudent: '',
             studentName: '',
-            file:'',
+            file: '',
         }
         this.openModalAdd = this.openModalAdd.bind(this);
         this.closeModalAdd = this.closeModalAdd.bind(this);
@@ -35,19 +35,19 @@ class AddSubject extends Component {
         this.closeModalDel = this.closeModalDel.bind(this);
         this.getStudentOfSubject = this.getStudentOfSubject.bind(this);
         this.handleChange = this.handleChange.bind(this)
-        this.deleteStudent= this.deleteStudent.bind(this)
+        this.deleteStudent = this.deleteStudent.bind(this)
     }
     componentDidMount() {
         this.getStudentOfSubject();
     }
-    deleteStudent(course){
-        return ()=>{
+    deleteStudent(course) {
+        return () => {
             const formData = new FormData();
-            formData.append('studentID',course.studentID);
-            formData.append('courseID',course.courseID);
-            formData.append('courseChar',course.courseChar);
-            Axios.post(URL_DEL_SOC,formData).then(rs=>{ 
-               // console.log(rs.data);
+            formData.append('studentID', course.studentID);
+            formData.append('courseID', course.courseID);
+            formData.append('courseChar', course.courseChar);
+            Axios.post(URL_DEL_SOC, formData).then(rs => {
+                // console.log(rs.data);
                 this.getStudentOfSubject();
             })
         }
@@ -103,7 +103,7 @@ class AddSubject extends Component {
     Add = () => {
         const formData = new FormData();
         formData.append('add', this.state.file);
-        
+
         Axios.post(URL_ADD_SOC, formData).then(rs => {
             console.log(rs.data);
             this.getStudentOfSubject();
@@ -134,7 +134,7 @@ class AddSubject extends Component {
                             Sinh viên: </Label>
                         <Input type="file"
                             name="add"
-                            onChange={(e)=>{this.setState({file:e.target.files[0]})}}
+                            onChange={(e) => { this.setState({ file: e.target.files[0] }) }}
                             style={{ float: 'right', marginLeft: 10 }}
                         />
                     </div>
@@ -197,34 +197,36 @@ class AddSubject extends Component {
                 <div style={{ marginTop: 50 }}>
                     {this.state.studentInfo.map(course => {
                         return (
-                            <div id="frameSubject" style={{ textDecoration: 'none' }}>
-                                <p>Họ và tên : {course.studentName}</p>
-                                <div style={{ fontSize: 16, marginLeft: 15 }}>
-                                    MSSV: {course.studentID}<br />
-                                    Lớp số: {course.courseID}<br />
-                                </div>
-                                <div
-                                    style={{
-                                        fontSize: 16,
-                                        float: 'right',
-                                        marginRight: 20,
-                                        marginTop: -30
-                                    }}
-                                >
-                                    Mã môn học: {course.courseChar}
+                            <>
+                                <div id="frameSubject" style={{ textDecoration: 'none' }}>
+                                    <p>Họ và tên : {course.studentName}</p>
+                                    <div style={{ fontSize: 16, marginLeft: 15 }}>
+                                        MSSV: {course.studentID}<br />
+                                        Lớp số: {course.courseID}<br />
+                                    </div>
+                                    <div
+                                        style={{
+                                            fontSize: 16,
+                                            float: 'right',
+                                            marginRight: 20,
+                                            marginTop: -30
+                                        }}
+                                    >
+                                        Mã môn học: {course.courseChar}
+                                    </div>
                                 </div>
                                 <button
                                     style={{
-                                        backgroundColor: 'red',
+                                        backgroundColor: 'transparent',
                                         float: 'right',
-                                        marginTop: -80,
+                                        marginTop: -120,
                                         borderRadius: 10
                                     }}
-                                  onClick={this.deleteStudent(course)}  
+                                    onClick={this.deleteStudent(course)}
                                 >
-                                        Xóa sinh viên
+                                    <MdDelete style={{backgroundColor:'transparent', width: 100, height: 100}}/>
                                     </button>
-                            </div>
+                            </>
 
                         )
                     })}

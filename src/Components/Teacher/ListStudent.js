@@ -4,11 +4,11 @@ import Modal from 'react-modal';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
 import Axios from 'axios';
-import { URL_GET_ALL_STUDENTS } from '../../Config/Api';
-import { Button } from 'reactstrap'
+import { URL_GET_ALL_STUDENTS,URL_ADD_STUDENT} from '../../Config/Api';
+import { Button,Input,Label } from 'reactstrap'
 const customStyles = {
     content: {
-        top: '50%',
+        top: '60%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
@@ -24,19 +24,31 @@ class ListStudent extends Component {
             studentsInfo: [],
             modalIsOpenAdd: false,
             modalIsOpenDel: false,
+            studentName:'',
+            studentID:'',
+            classStudent:''
+            
         }
         this.openModalAdd = this.openModalAdd.bind(this);
         this.closeModalAdd = this.closeModalAdd.bind(this);
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
+        this.getAllStudents=this.getAllStudents.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
     componentDidMount() {
+       this.getAllStudents();
+    }
+    getAllStudents(){
         Axios.get(URL_GET_ALL_STUDENTS).then(rs => {
             //console.log(rs.data);
             this.setState({
                 studentsInfo: rs.data
             })
         })
+    }
+    handleChange(e){
+        this.setState({[e.target.name]:e.target.value});
     }
     renderButton() {
         return (
@@ -74,7 +86,16 @@ class ListStudent extends Component {
     }
 
     Add = () => {
-        { this.closeModalAdd() }
+        const formData = new FormData();
+        formData.append('studentName',this.state.studentName);
+        formData.append('studentID',this.state.studentID);
+        formData.append('classStudent',this.state.classStudent);
+        formData.append('token',localStorage.getItem('token')); 
+        Axios.post(URL_ADD_STUDENT,formData).then(rs=>{
+            //console.log(rs.data);   
+             this.getAllStudents();      
+            this.closeModalAdd();
+        })
     }
 
     Del = () => {
@@ -119,22 +140,32 @@ class ListStudent extends Component {
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
-                        <label name="class"
+                        <Label name="class"
                         // style={{ marginRight: 10 }}
                         >
-                            Họ và tên: </label>
-                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
+                            Họ và tên: </Label>
+                        <Input type="text" name="studentName" 
+                        style={{ float: 'right', marginLeft: 10 }}  onChange={this.handleChange}/>
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
-                        <label name="class"
-                            style={{ marginBottom: 100 }}
+                        <Label name="class"
+                            
                         >
-                            Mã sinh viên: </label>
-                        <input type="text" name="class" style={{ float: 'right', marginLeft: 10 }} />
+                            Mã sinh viên: </Label>
+                        <Input type="text" name="studentID" 
+                        style={{ float: 'right', marginLeft: 10 }} onChange={this.handleChange}/>
                     </div>
                     <div style={{ clear: 'both' }}></div>
-                    <button style={{ marginTop: 200 }}
+                    <div >
+                        <Label name="class"
+                        >
+                            Lớp: </Label>
+                        <Input type="text" name="classStudent" style={{ float: 'right', marginLeft: 10 }} onChange={this.handleChange}/>
+                    </div>
+                    <div style={{ clear: 'both' }}></div>
+                    <button 
+                    style={{ marginTop: 20 }}
                         onClick={() => { this.Add() }}
                     >
                         Thêm
@@ -164,7 +195,7 @@ class ListStudent extends Component {
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
-                        <label name="msv" style={{ marginBottom: 100 }}>Mã sinh viên: </label>
+                        <Label name="msv" style={{ marginBottom: 100 }}>Mã sinh viên: </Label>
                         <input type="text" name="msv" id="msv" style={{ float: 'right', marginLeft: 10 }} />
                     </div>
                     <div style={{ clear: 'both' }}></div>
@@ -180,6 +211,7 @@ class ListStudent extends Component {
     }
 
     render() {
+        console.log()
         return (
             <>
                 <div>

@@ -1,24 +1,26 @@
 import React, { useState, useEffect, Component } from 'react';
+import './ListClass.css';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import HeaderElement from '../Header/HeaderElement';
 import MenuTeacher from '../MenuTeacher/MenuTeacher';
-import { URL_GET_ALLCOURSES,URL_ADD_COURSES } from '../../Config/Api';
-import { Label,Input, Button } from 'reactstrap';
+import { URL_GET_ALLCOURSES, URL_ADD_COURSES, URL_DEL_COURSE } from '../../Config/Api';
+import { Label, Input, Button } from 'reactstrap';
 import Modal from 'react-modal';
+import { MdDelete } from 'react-icons/md';
 
 const customStyles = {
     content: {
-        width : "30vw", 
-        backgroundColor : "white",
+        width: "30vw",
+        backgroundColor: "white",
         top: '60%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        zIndex:'3',
-        position : 'relative'
+        zIndex: '3',
+        position: 'relative'
     }
 };
 
@@ -39,18 +41,29 @@ class ClassList extends Component {
         this.openModalDel = this.openModalDel.bind(this);
         this.closeModalDel = this.closeModalDel.bind(this);
         this.handleChange = this.handleChange.bind(this)
-        this.getAllCourses=this.getAllCourses.bind(this);
-
+        this.getAllCourses = this.getAllCourses.bind(this);
+        this.deleteCourse = this.deleteCourse.bind(this);
     }
     componentDidMount() {
-       this.getAllCourses();
+        this.getAllCourses();
     }
-    getAllCourses(){
+    getAllCourses() {
         Axios.get(URL_GET_ALLCOURSES).then(rs => {
             // console.log(rs.data);
-            // setCourseInfor(rs.data)
+            // setCourseInfo    r(rs.data)
             this.setState({ courseInfor: rs.data })
         })
+    }
+    deleteCourse(course) {
+        return () => {
+            const formData = new FormData();
+            formData.append('courseID', course.courseID);
+            formData.append('courseChar', course.courseChar);
+            Axios.post(URL_DEL_COURSE, formData).then(rs => {
+                this.getAllCourses();
+                console.log(rs.data)
+            })
+        }
     }
     handleChange(e) {
         // e.preventDefault();
@@ -67,7 +80,7 @@ class ClassList extends Component {
                         marginTop: 0,
                         marginLeft: 30,
                         position: "fixed",
-                        zIndex:'1'
+                        zIndex: '1'
                     }}
                     onClick={this.openModalAdd}
                 >
@@ -92,7 +105,7 @@ class ClassList extends Component {
     }
 
     Add = () => {
-        //console.log(this.state);
+        // console.log(this.state);
         const formData = new FormData();
         formData.append('courseID', this.state.courseID);
         formData.append('courseName', this.state.courseName);
@@ -101,9 +114,9 @@ class ClassList extends Component {
         Axios.post(URL_ADD_COURSES, formData).then(rs => {
             //console.log(rs.data )
             this.getAllCourses();
-             this.closeModalAdd();
+            this.closeModalAdd();
         })
-       // { this.closeModalAdd() }
+        // { this.closeModalAdd() }
     }
     openModalAdd() {
         this.setState({ modalIsOpenAdd: true });
@@ -129,9 +142,9 @@ class ClassList extends Component {
                             Môn thi: </Label>
                         <Input type="text"
                             name="courseName"
-                            onChange={this.handleChange} 
+                            onChange={this.handleChange}
                             style={{ float: 'right', marginLeft: 10 }}
-                            />
+                        />
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
@@ -139,9 +152,9 @@ class ClassList extends Component {
                             Mã môn: </Label>
                         <Input type="text"
                             name="courseChar"
-                            onChange={this.handleChange} 
+                            onChange={this.handleChange}
                             style={{ float: 'right', marginLeft: 10 }}
-                            />
+                        />
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
@@ -149,9 +162,9 @@ class ClassList extends Component {
                             Lớp số: </Label>
                         <Input type="text"
                             name="courseID"
-                            onChange={this.handleChange} 
+                            onChange={this.handleChange}
                             style={{ float: 'right', marginLeft: 10 }}
-                            />
+                        />
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <button
@@ -194,9 +207,9 @@ class ClassList extends Component {
                             Môn thi: </Label>
                         <Input type="text"
                             name="courseName"
-                            onChange={this.handleChange} 
+                            onChange={this.handleChange}
                             style={{ float: 'right', marginLeft: 10 }}
-                            />
+                        />
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <div >
@@ -204,9 +217,9 @@ class ClassList extends Component {
                             Lớp số: </Label>
                         <Input type="text"
                             name="courseID"
-                            onChange={this.handleChange} 
+                            onChange={this.handleChange}
                             style={{ float: 'right', marginLeft: 10 }}
-                            />
+                        />
                     </div>
                     <div style={{ clear: 'both' }}></div>
                     <button
@@ -223,28 +236,42 @@ class ClassList extends Component {
     renderClass() {
         return (
             <div style={{ marginTop: 50, zIndex: "-1" }}>
-
-                <div id="frame" style={{ marginTop: 50 }}>
-
+                <div style={{ marginTop: 50 }}>
                     {this.state.courseInfor.map(course => {
                         const url = `/Teacher/StudentOfSubject/${course.courseID}/${course.courseChar}`;
-
                         return (
+                            <>
+                                <Link to={url} style={{ textDecoration: 'none' }}>
+                                    <div id="frameSubject">
+                                        <p>
+                                            {course.courseName}
+                                        </p>
+                                        <p style={{ float: 'left', fontSize: 16 }}>
+                                            Mã môn học: {course.courseChar}
+                                        </p>
+                                        <p style={{ float: "right", marginRight: 10, fontSize: 16, }}>
+                                            Lớp số: {course.courseID}
+                                        </p>
 
-                            <Link to={url} style={{ textDecoration: 'none' }}>
+                                    </div>
+                                </Link>
+                                <button
+                                    style={{
+                                        // backgroundColor: 'blue',
+                                        float: 'right',
+                                        marginTop: "-18vh",
+                                        borderRadius: 10,
+                                        height: 80,
+                                        width: 80,
+                                        marginRight: 10
 
-                                <div id="frameSubject">
-                                    <p>
-                                        {course.courseName}
-                                    </p>
-                                    <p style={{ float: 'left', fontSize: 16 }}>
-                                        Mã môn học: {course.courseChar}
-                                    </p>
-                                    <p style={{ float: "right", marginRight: 10, fontSize: 16, }}>
-                                        Lớp số: {course.courseID}
-                                    </p>
-                                </div>
-                            </Link>
+                                    }}
+                                    onClick={this.deleteCourse(course)}
+                                >
+                                    {/* <MdDelete style={{height: 80, width: 80}}/> */}
+                                    xóa môn
+                            </button>
+                            </>
                         )
                     })}
                 </div>
@@ -266,9 +293,9 @@ class ClassList extends Component {
 
                     {this.renderClass()}
                 </div>
-                <div style = {{zIndex : "888", backgroundColor : 'white'    }}>
-                {this.renderModalAdd()}
-                {/* {this.renderModalDel()} */}
+                <div style={{ zIndex: "888", backgroundColor: 'white' }}>
+                    {this.renderModalAdd()}
+                    {/* {this.renderModalDel()} */}
                 </div>
             </div >
         )
